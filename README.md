@@ -6,13 +6,13 @@ Hotel reservation system
 
 Room reservations 
 
-Days to be booked / hours booked/ discount for staying longer
-types of rooms
-provided food or not
-Number of guests / max per room
-are they a member or not / add a discount
-military discount
-check in/ check out
+-Days to be booked / hours booked/ discount for staying longer
+-types of rooms
+-provided food or not
+-Number of guests / max per room
+-are they a member or not / add a discount
+-military discount
+-check in/ check out
 
 ### sub-directory 1
 
