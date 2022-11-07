@@ -16,8 +16,8 @@ And I love doing this
 ## Team members
 
 - Sarthak Singh
-- Joe
-- 
+- Joe Savella
+- Shuofei Wu
 
 ## Months
 
