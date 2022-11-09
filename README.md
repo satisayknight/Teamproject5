@@ -2,7 +2,7 @@
 
 ## Project Description
 
--Hotel reservation system 
+Hotel reservation system 
 
 - Room reservations
 - Days to be booked 
