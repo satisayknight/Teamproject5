@@ -20,4 +20,4 @@
 - Shuofei Wu
 
 
-![image](UMLDiagram.png)
+![image](updatedUML.png)
