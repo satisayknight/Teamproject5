@@ -6,12 +6,12 @@
 
 - Room reservations
 - Days to be booked 
-- cleaning fees
-- types of rooms 
-- provided food or not
+- Cleaning fees
+- Types of rooms 
+- Provided food or not
 - Number of guests / max per room 
-- are they a member or not / add a discount
-- check in/ check out 
+- Are they a member or not / add a discount
+- Check in / check out 
 
 ## Team members
 
