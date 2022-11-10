@@ -14,11 +14,11 @@ public class Room {
     }
 
     public Double getPrice() {
-        return price;
+        return this.price;
     }
 
-    public RoomTypes getRoompicked() {
-        return roompicked;
+    public RoomTypes getRoompTypes() {
+        return this.roompicked;
     }
 
     @Override
