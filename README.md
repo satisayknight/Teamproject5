@@ -20,4 +20,4 @@ Hotel reservation system
 - Shuofei Wu
 
 
-![image](UMLv1_2.jpg)
+![image](UMLv1_3.jpg)
