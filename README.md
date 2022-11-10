@@ -21,10 +21,10 @@ Hotel reservation system
 
 ## User Stories
 
--As a guest, I want to be able to check in with a check in and check out dates
--As a guest, I want to be able to browse hotel room types and view their details
--As a guest, I want to be able to book a hotel room
--As a guest, I want to be able to pay for my hotel room booking
+- As a guest, I want to be able to check in with a check in and check out dates
+- As a guest, I want to be able to browse hotel room types and view their details
+- As a guest, I want to be able to book a hotel room
+- As a guest, I want to be able to pay for my hotel room booking
 
 
 ![image](images/UMLv1_3.jpg)
