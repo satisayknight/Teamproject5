@@ -19,7 +19,7 @@ Hotel reservation system
 - Joe Savella
 - Shuofei Wu
 
-##User Stories
+## User Stories
 
 -As a guest, I want to be able to check in with a check in and check out dates
 -As a guest, I want to be able to browse hotel room types and view their details
