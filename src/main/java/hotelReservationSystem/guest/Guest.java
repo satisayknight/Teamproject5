@@ -8,7 +8,6 @@ public class Guest {
     private String guestName;
     private String guestEmail;
     private String guestPhoneNumber;
-
     private List<Guest> guestList;
 
 }
