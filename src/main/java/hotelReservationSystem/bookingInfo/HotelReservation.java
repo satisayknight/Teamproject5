@@ -1,4 +1,4 @@
-package hoteReservationSystem.bookingInfo;
+package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.room.Room;
