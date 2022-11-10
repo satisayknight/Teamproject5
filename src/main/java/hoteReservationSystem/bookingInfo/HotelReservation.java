@@ -11,12 +11,18 @@ public class HotelReservation {
     private Date checkOutDate;
     private Guest guest;
     private Room room;
+    private int reservationId;
 
-    public HotelReservation(Guest guest, Room room, Date checkInDate, Date checkOutDate) {
+    public HotelReservation() {
+
+    }
+
+    public HotelReservation(Guest guest, Room room, Date checkInDate, Date checkOutDate, int reservationId) {
         this.guest = guest;
         this.room = room;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
+        this.reservationId = reservationId;
     }
 
     public Date getCheckInDate() {
