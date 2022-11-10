@@ -1,2 +1,4 @@
-package hotelReservationSystem.hotel.types;public enum RoomTypes {
+package hotelReservationSystem.hotel.types;
+
+public enum RoomTypes {
 }
