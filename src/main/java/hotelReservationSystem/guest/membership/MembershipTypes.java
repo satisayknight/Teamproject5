@@ -1,2 +1,6 @@
-package hotelReservationSystem.guest.membership;public enum MembershipTypes {
+package hotelReservationSystem.guest.membership;
+public class MembershipTypes {
+    public enum Membership {
+        Gold, Silver, Bronze
+    }
 }

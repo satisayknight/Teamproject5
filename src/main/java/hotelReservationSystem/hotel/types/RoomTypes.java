@@ -1,4 +1,8 @@
 package hotelReservationSystem.hotel.types;
 
-public enum RoomTypes {
+public class RoomTypes {
+    public enum Rooms {
+        King, Queen, Double, Single
+    }
 }
+
