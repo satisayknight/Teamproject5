@@ -1,2 +1,4 @@
-package hotelReservationSystem.payment;public class Payment {
+package hotelReservationSystem.payment;
+
+public class Payment {
 }
