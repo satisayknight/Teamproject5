@@ -15,7 +15,6 @@ public class Guest {
     private List<Guest> guestList;
 
     public Guest() {
-
     }
 
     public Guest(String name, String email, String phone) {
