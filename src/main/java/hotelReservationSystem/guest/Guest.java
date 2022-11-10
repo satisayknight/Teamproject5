@@ -31,7 +31,6 @@ public class Guest {
 
     private void setGuestEmail(String email) {
         Pattern pattern = Pattern.compile(EMAIL_REGEX_PATTERN);
-
         if(!pattern.matcher(email).matches()) {
             throw new IllegalArgumentException("Invalid email");
         }
