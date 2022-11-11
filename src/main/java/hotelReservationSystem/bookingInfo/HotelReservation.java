@@ -4,6 +4,7 @@ import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.room.Room;
 
 import java.util.Date;
+import java.util.Scanner;
 
 public class HotelReservation {
 
@@ -23,6 +24,13 @@ public class HotelReservation {
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.reservationId = reservationId;
+    }
+
+    public int createANewRoomReservation() {
+        Scanner stdInt = new Scanner(System.in);
+
+        System.out.println();
+        return reservationId;
     }
 
     public Date getCheckInDate() {

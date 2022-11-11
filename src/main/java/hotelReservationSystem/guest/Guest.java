@@ -13,7 +13,6 @@ public class Guest {
     private static final String PHONE_REGEX_PATTTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
 
     MembershipTypes membershipType = null;
-    private List<Guest> guestList;
 
     public Guest() {
     }
@@ -57,6 +56,10 @@ public class Guest {
         else {
             this.guestName = guestName;
         }
+    }
+
+    public MembershipTypes getMembershipType() {
+        return membershipType;
     }
 
     public String getGuestName() {
