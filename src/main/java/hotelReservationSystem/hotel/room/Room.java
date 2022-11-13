@@ -4,34 +4,30 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 
 
 public class Room {
-    private final Double price;
+
     private final RoomTypes roompicked;
     private String roomNumber;
 
 
-    public Room(String roomNumber,Double price, RoomTypes rooming) {
+    public Room(String roomNumber, RoomTypes rooming) {
         this.roomNumber = roomNumber;
-        this.price = price;
         this.roompicked = rooming;
 
     }
+
 
     public String getRoomNumber() {
         return this.roomNumber;
     }
 
-    public Double getPrice() {
-        return this.price;
-    }
 
-    public RoomTypes getRoompTypes() {
+    public RoomTypes getRoomTypes() {
         return this.roompicked;
     }
 
     @Override
     public String toString() {
-        return "Room Number: " + this.roomNumber +
-                " Price: $" + this.price
+        return "Room Number: " + this.roomNumber
                 + "Staying in" + this.roompicked;
     }
 }
