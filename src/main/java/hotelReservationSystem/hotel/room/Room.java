@@ -5,10 +5,13 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 
 public class Room {
 
-    private final RoomTypes roomType;
-    private final String roomNumber;
+    private RoomTypes roomType;
+    private String roomNumber;
     private boolean isVacant;
 
+    public Room() {
+
+    }
 
     public Room(String roomNumber, RoomTypes roomType, boolean isVacant) {
         this.roomNumber = roomNumber;
