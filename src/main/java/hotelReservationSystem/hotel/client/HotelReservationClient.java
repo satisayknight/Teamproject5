@@ -25,14 +25,18 @@ public class HotelReservationClient {
             switch (selection) {
 
                 case 1:
-                    System.out.println("How many rooms would you like to book? ");
-                    int rooms = stdInt.nextInt();
-                    amountOfRoomsRequested = new Room[rooms];
-
-                 //  for (int i = 0; i < amountOfRoomsRequested.length; i++) {
-                 //      System.out.println("What kind of room would you like: King, Queen, or Suite? ");
-                 //      RoomTypes roomTypesRequested = RoomTypes.getByName(stdInt.nextLine().toUpperCase());
-                 //  }
+                    System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
+                    int roomType = stdInt.nextInt();
+                    if (roomType == 1) {
+                        System.out.println("Type:King Beds:1 Max Capacity:4 Price:200 Amenities:Full Kitchen");
+                    } else if (roomType == 2) {
+                        System.out.println("Type:Queen Beds:2 Max Capacity:6 Price:150 Amenities:Half Kitchen");
+                    } else if (roomType == 3) {
+                        System.out.println("Type:Suite Beds:1 Max Capacity:4 Price:100 Amenities:Microwave");
+                    } else {
+                        System.out.println("Invalid. Please input: 1, 2, or 3.");
+                    }
+                    break;
 
                 case 2:
                     System.out.println("What is your reservation id? ");
