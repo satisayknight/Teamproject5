@@ -6,7 +6,6 @@ import hotelReservationSystem.hotel.room.Price;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Scanner;
 
 public class HotelReservation {
 
@@ -14,26 +13,27 @@ public class HotelReservation {
     private LocalDate checkOutDate;
     private Guest guest;
     private Room room;
-    private int reservationId;
+    private int[] reservationId = new int[200];
+    private int currentIndex = 0;
     private double totalCost;
 
     public HotelReservation() {
 
     }
 
-    public HotelReservation(Guest guest, Room room, LocalDate checkInDate, LocalDate checkOutDate, int reservationId) {
+    public HotelReservation(Guest guest, Room room, LocalDate checkInDate, LocalDate checkOutDate, int[] reservationId) {
         this.guest = guest;
         this.room = room;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.reservationId = reservationId;
-        this.totalCost = calclateTotalCost();
+        this.totalCost = calculateTotalCost();
     }
 
-    public int createANewRoomReservation() {
-        Scanner stdInt = new Scanner(System.in);
+    public int[] createANewRoomReservation() {
+        int i = reservationId[currentIndex++];
 
-        System.out.println();
+        System.out.println("Your reservationId is: " + i);
         return reservationId;
     }
 
@@ -53,7 +53,7 @@ public class HotelReservation {
         return totalCost;
     }
 
-    private double calclateTotalCost(){
+    private double calculateTotalCost(){
         long totalDaysStayed = ChronoUnit.DAYS.between(checkInDate, checkOutDate);
         double totalCost = Price.calculateCosts( room.getRoomTypes(), totalDaysStayed);
         return totalCost;
