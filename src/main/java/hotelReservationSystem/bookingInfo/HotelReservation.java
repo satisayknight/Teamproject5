@@ -6,7 +6,6 @@ import hotelReservationSystem.hotel.room.Price;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 import java.util.Scanner;
 
 public class HotelReservation {
