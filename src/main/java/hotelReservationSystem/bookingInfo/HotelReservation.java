@@ -34,11 +34,6 @@ public class HotelReservation {
         this.totalCost = calculateTotalCost(daysBooked);
     }
 
-    public int createANewRoomReservation(RoomTypes roomTypes) {
-        int i = reservationId;
-        return reservationId;
-    }
-
     public int getDays() {
         return days;
     }
