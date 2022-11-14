@@ -30,7 +30,7 @@ public class HotelReservationClient {
                     int roomType = stdInt.nextInt();
                     HotelReservation hotelReservation = new HotelReservation();
                     if (roomType == 1) {
-                        hotelReservation.createANewRoomReservation();
+                        hotelReservation.createANewRoomReservation(RoomTypes.KING);
                     } else if (roomType == 2) {
 
                     } else if (roomType == 3) {
