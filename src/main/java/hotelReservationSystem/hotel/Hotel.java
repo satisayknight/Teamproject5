@@ -4,20 +4,14 @@ import hotelReservationSystem.hotel.room.Room;
 
 public class Hotel {
 
-    private static final int totalNumberOfRoom=100;
-    private int numberOfAvailableRoom;
+    private static final int totalNumberOfAvailableKingRoom=20;
+    private static final int totalNumberOfAvailableQueenRoom=20;
+    private static final int totalNumberOfAvailableSuite=20;
+
     private Room room;
 
     public void booking(){
 
-    }
-
-    public int getNumberOfAvailableRoom() {
-        return numberOfAvailableRoom;
-    }
-
-    public void setNumberOfAvailableRoom(int numberOfAvailableRoom) {
-        this.numberOfAvailableRoom = numberOfAvailableRoom;
     }
 
 

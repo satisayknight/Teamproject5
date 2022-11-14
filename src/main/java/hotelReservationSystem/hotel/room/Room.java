@@ -5,13 +5,13 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 
 public class Room {
 
-    private final RoomTypes roompicked;
+    private final RoomTypes roomType;
     private String roomNumber;
 
 
-    public Room(String roomNumber, RoomTypes rooming) {
+    public Room(String roomNumber, RoomTypes roomType) {
         this.roomNumber = roomNumber;
-        this.roompicked = rooming;
+        this.roomType = roomType;
 
     }
 
@@ -22,12 +22,12 @@ public class Room {
 
 
     public RoomTypes getRoomTypes() {
-        return this.roompicked;
+        return this.roomType;
     }
 
     @Override
     public String toString() {
         return "Room Number: " + this.roomNumber
-                + "Staying in" + this.roompicked;
+                + "Staying in" + this.roomType;
     }
 }
