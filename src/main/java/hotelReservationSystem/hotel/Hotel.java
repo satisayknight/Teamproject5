@@ -55,15 +55,10 @@ public class Hotel {
 
                 case 2:
                     System.out.println("What is your reservation id? ");
-                    int checkInByReservationId = stdInt.nextInt();
-                    break;
-
-                case 3:
-                    System.out.println("What is your reservation id? ");
                     int viewReservationDetailsById = stdInt.nextInt();
                     break;
 
-                case 4:
+                case 3:
                     System.out.println("Which kind of room would you like to view? 1:King, 2:Queen, or 3:Suite? ");
                     int roomTypeToView = stdInt.nextInt();
                     if (roomTypeToView == 1) {
@@ -77,7 +72,7 @@ public class Hotel {
                     }
                     break;
 
-                case 5:
+                case 4:
                     System.out.println("Thank you for using the HotelReservationSystem JSS program.");
                     break;
 
@@ -91,10 +86,10 @@ public class Hotel {
     public static void displayMenu() {
         System.out.println("MENU: ");
         System.out.println("1: Create a new reservation.");
-        System.out.println("2: Check in or check out.");
-        System.out.println("3: View your reservation details.");
-        System.out.println("4: View available room details.");
-        System.out.println("5: Exit program.");
+        //System.out.println("2: Check in or check out.");
+        System.out.println("2: View your reservation details.");
+        System.out.println("3: View available room details.");
+        System.out.println("4: Exit program.");
     }
 
 
