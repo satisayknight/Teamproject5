@@ -80,7 +80,7 @@ public class Hotel {
                     System.out.println("Invalid choice.");
             }
         }
-        while (selection != 5);
+        while (selection != 4);
     }
 
     public static void displayMenu() {
