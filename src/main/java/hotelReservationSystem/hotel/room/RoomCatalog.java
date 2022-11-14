@@ -10,7 +10,7 @@ public class RoomCatalog implements ICatalog{
 
 
     private List<Room> catalogOfRooms = new ArrayList<>(List.of(
-            /* roomNumber    roomType*/
+            /* roomNumber    roomType    RoomStatus*/
             new Room("101", RoomTypes.KING,true),
             new Room("102", RoomTypes.KING,true),
             new Room("103", RoomTypes.KING,true),
@@ -75,6 +75,8 @@ public class RoomCatalog implements ICatalog{
     )
     );
 
+
+    @Override
     public Room getNextRoomByType(RoomTypes roomType) {
         List<Room> availableRoomByRoomType = findAvailableRoomByRoomType(roomType);
         return availableRoomByRoomType.get(0);
