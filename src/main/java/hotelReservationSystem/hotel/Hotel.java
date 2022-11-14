@@ -14,9 +14,7 @@ public class Hotel {
 
     private Room room;
 
-    public void booking(){
 
-    }
 
     public Room getRoom() {
         return room;

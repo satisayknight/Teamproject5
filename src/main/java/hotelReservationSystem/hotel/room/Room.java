@@ -6,12 +6,14 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 public class Room {
 
     private final RoomTypes roomType;
-    private String roomNumber;
+    private final String roomNumber;
+    private boolean isVacant;
 
 
-    public Room(String roomNumber, RoomTypes roomType) {
+    public Room(String roomNumber, RoomTypes roomType, boolean isVacant) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
+        this.isVacant=isVacant;
 
     }
 
@@ -25,9 +27,34 @@ public class Room {
         return this.roomType;
     }
 
+    public boolean getIsVacant() {
+        return isVacant;
+    }
+
+    public void changeRoomToTaken(){
+        if(isVacant==true){
+            isVacant=false;
+        }else{
+            System.out.println("The room is already taken.");
+        }
+
+    }
+    public void changeRoomToVacant(){
+        if(isVacant==false){
+            isVacant=true;
+        }else{
+            System.out.println("The room is already vacant.");
+        }
+
+    }
+
+
     @Override
     public String toString() {
-        return "Room Number: " + this.roomNumber
-                + "Staying in" + this.roomType;
+        return "Room{" +
+                "roomType=" + roomType +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", isVacant=" + isVacant +
+                '}';
     }
 }

@@ -37,12 +37,6 @@ public class HotelReservation {
         return reservationId;
     }
 
-
-
-
-
-
-
     public Room getRoom() {
         return room;
     }
