@@ -24,7 +24,7 @@ public class Hotel {
         this.room = room;
     }
 
-    public void makeReservation(){
+    public void operate(){
 
         Scanner stdInt = new Scanner(System.in);
         Room[] amountOfRoomsRequested;

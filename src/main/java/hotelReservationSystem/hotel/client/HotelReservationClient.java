@@ -8,7 +8,7 @@ public class HotelReservationClient {
     public static void main(String[] args) {
 
         Hotel hotel = new Hotel();
-        hotel.makeReservation();
+        hotel.operate();
 
     }
 }
