@@ -12,12 +12,12 @@ public class Price {
 
     public static double calculateCosts(RoomTypes roomTypes, long totalDaysStayed) {
         double stayingcost = 0;
-        if (roomTypes.equals(Rooms.KING)) {
+        if (roomTypes.equals(roomTypes.KING)) {
             stayingcost = KING_COST * totalDaysStayed;
         } else if
-        (roomTypes.equals(Rooms.QUEEN)) {
+        (roomTypes.equals(roomTypes.QUEEN)) {
             stayingcost = QUEEN_COST * totalDaysStayed;
-        } else if (roomTypes.equals(Rooms.SUITE)) {
+        } else if (roomTypes.equals(roomTypes.SUITE)) {
             stayingcost = VIP_COST * totalDaysStayed;
         }
         return stayingcost;

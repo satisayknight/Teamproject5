@@ -1,18 +1,23 @@
 package hotelReservationSystem.hotel.room.types;
 
-public class RoomTypes {
+public enum RoomTypes {
 
-    public enum Rooms {
-        KING, QUEEN,SUITE;
 
-        public static Rooms getByName(String name) {
-            try {
-                return valueOf(name.toUpperCase());
-            }
-            catch(IllegalArgumentException e) {
-                System.out.println("Invalid room type. Please choose between: King, Queen, or Suite");
-                return null;
+    KING("1"), QUEEN("2"), SUITE("3");
+
+    public final String label;
+
+    private RoomTypes(String label) {
+        this.label = label;
+    }
+
+    public static RoomTypes valueOfLabel(String label) {
+        for (RoomTypes roomType : values()) {
+            if (roomType.label.equals(label)) {
+                return roomType;
             }
         }
+        throw new IllegalArgumentException();
     }
+
 }

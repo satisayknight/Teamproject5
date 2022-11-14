@@ -29,10 +29,10 @@ public class HotelReservationClient {
                     int rooms = stdInt.nextInt();
                     amountOfRoomsRequested = new Room[rooms];
 
-                    for (int i = 0; i < amountOfRoomsRequested.length; i++) {
-                        System.out.println("What kind of room would you like: King, Queen, or Suite? ");
-                        RoomTypes.Rooms roomTypesRequested = RoomTypes.Rooms.getByName(stdInt.nextLine().toUpperCase());
-                    }
+                 //  for (int i = 0; i < amountOfRoomsRequested.length; i++) {
+                 //      System.out.println("What kind of room would you like: King, Queen, or Suite? ");
+                 //      RoomTypes roomTypesRequested = RoomTypes.getByName(stdInt.nextLine().toUpperCase());
+                 //  }
 
                 case 2:
                     System.out.println("What is your reservation id? ");
