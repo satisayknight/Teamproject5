@@ -14,7 +14,7 @@ public class HotelReservation {
     private int days;
     private Guest guest;
     private Room room;
-    private int[] reservationId = new int[200];
+    private int reservationId;
     private int currentIndex = 0;
     private double totalCost;
 
@@ -22,20 +22,50 @@ public class HotelReservation {
 
     }
 
-    public HotelReservation(Guest guest, Room room, int daysBooked, int[] reservationId) {
+    public HotelReservation(int id) {
+        this.reservationId = id;
+    }
+
+    public HotelReservation(int reservationId, Guest guest, Room room, int daysBooked) {
+        this(reservationId);
         this.guest = guest;
         this.room = room;
         this.days = daysBooked;
-        this.reservationId = reservationId;
         this.totalCost = calculateTotalCost(daysBooked);
     }
 
-    public int[] createANewRoomReservation(RoomTypes roomTypes) {
-        int i = reservationId[currentIndex++];
-        System.out.println("When is your check-in and check-out? ");
+    public int createANewRoomReservation(RoomTypes roomTypes) {
+        int i = reservationId;
         return reservationId;
     }
 
+    public int getDays() {
+        return days;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
+    }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
 
     public Room getRoom() {
         return room;
