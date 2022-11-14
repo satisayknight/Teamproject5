@@ -77,8 +77,8 @@ public class HotelReservation {
 
     @Override
     public String toString() {
-        return "Customer: " + this.guest.toString()
-                + "\nRoom: " + this.room.toString();
+//        return "Customer: " + this.guest.toString()
+                 return "Room: " + this.room.toString();
 
     }
 }

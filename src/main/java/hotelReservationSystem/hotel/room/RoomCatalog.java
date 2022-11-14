@@ -75,6 +75,10 @@ public class RoomCatalog implements ICatalog{
     )
     );
 
+    public Room getNextRoomByType(RoomTypes roomType) {
+        List<Room> availableRoomByRoomType = findAvailableRoomByRoomType(roomType);
+        return availableRoomByRoomType.get(0);
+    }
 
     @Override
     public Room findByRoomNumber(String roomNumber) {
@@ -98,9 +102,9 @@ public class RoomCatalog implements ICatalog{
         return ans;
     }
 
-    public Collection<Room> findAvailableRoomByRoomType(RoomTypes roomType){
+    public List<Room> findAvailableRoomByRoomType(RoomTypes roomType){
 
-        Collection<Room> ans = new ArrayList<>();
+        List<Room> ans = new ArrayList<>();
         Collection<Room> roomOfInterestedRoomType = findByRoomType(roomType);
         for (Room r : roomOfInterestedRoomType) {
             if (r.getIsVacant()==true ) {
@@ -130,5 +134,12 @@ public class RoomCatalog implements ICatalog{
     @Override
     public Collection<Room> getAll() {
         return catalogOfRooms;
+    }
+
+    @Override
+    public String toString() {
+        return "RoomCatalog{" +
+                "catalogOfRooms=" + catalogOfRooms +
+                '}';
     }
 }
