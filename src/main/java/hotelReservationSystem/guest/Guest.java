@@ -7,8 +7,10 @@ public class Guest {
     private String guestName;
     private String guestEmail;
     private String guestPhoneNumber;
+    private String guestCardNumber;
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
     private static final String PHONE_REGEX_PATTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
+    private static final String CREDITCARD_REGEX_PATTERN = "/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$/";
 
 
     //MembershipTypes membershipType = null;
@@ -25,10 +27,9 @@ public class Guest {
 
     private void setGuestEmail(String email) {
         Pattern pattern = Pattern.compile(EMAIL_REGEX_PATTERN);
-        if(!pattern.matcher(email).matches()) {
+        if (!pattern.matcher(email).matches()) {
             throw new IllegalArgumentException("Invalid email");
-        }
-        else {
+        } else {
             this.guestEmail = email;
         }
     }
@@ -36,10 +37,9 @@ public class Guest {
     private void setGuestPhoneNumber(String number) {
         Pattern pattern = Pattern.compile(PHONE_REGEX_PATTERN);
 
-        if(!pattern.matcher(number).matches()) {
+        if (!pattern.matcher(number).matches()) {
             throw new IllegalArgumentException("Invalid phone number");
-        }
-        else {
+        } else {
             this.guestPhoneNumber = number;
         }
     }
@@ -47,9 +47,21 @@ public class Guest {
     public void setGuestName(String guestName) {
         if (guestName.length() >= 0) {
             throw new IllegalArgumentException("Invalid name length");
-        }
-        else {
+        } else {
             this.guestName = guestName;
+        }
+    }
+
+    public String getGuestCardNumber() {
+        return guestCardNumber;
+    }
+
+    public void setGuestCardNumber(String guestCardNumber) {
+        Pattern pattern = Pattern.compile(CREDITCARD_REGEX_PATTERN);
+        if (!pattern.matcher(guestCardNumber).matches()) {
+            throw new IllegalArgumentException("Invalid Card number");
+        } else {
+            this.guestCardNumber = guestCardNumber;
         }
     }
 
@@ -69,7 +81,7 @@ public class Guest {
     public String toString() {
         return "Guest Name: " + this.guestName
                 + " Email: " + this.guestEmail
-                +"Phone Number: " + this.guestPhoneNumber;
+                + "Phone Number: " + this.guestPhoneNumber;
     }
 
 
