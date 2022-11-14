@@ -1,14 +1,13 @@
 package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
-import hotelReservationSystem.hotel.Hotel;
-import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.RoomCatalog;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
 
 import java.util.*;
 
 public class InMemoryReservationCatalog implements IReservationCatalog {
+    private static int counter = 0;
     private List<HotelReservation> hotelReservationList;
 
     public static HotelReservation createNewHotelReservation() {
@@ -20,13 +19,13 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
         int roomType = stdInt.nextInt();
         if (roomType == 1) {
-            roomForBooking.getNextRoomByType(RoomTypes.KING);
+            reservation.setRoom(roomForBooking.getNextRoomByType(RoomTypes.KING));
             System.out.println(roomForBooking.getNextRoomByType(RoomTypes.KING));
         } else if (roomType == 2) {
-            roomForBooking.getNextRoomByType(RoomTypes.QUEEN);
+            reservation.setRoom(roomForBooking.getNextRoomByType(RoomTypes.QUEEN));
             System.out.println(roomForBooking.getNextRoomByType(RoomTypes.QUEEN));
         } else if (roomType == 3) {
-            roomForBooking.getNextRoomByType(RoomTypes.SUITE);
+            reservation.setRoom(roomForBooking.getNextRoomByType(RoomTypes.SUITE));
             System.out.println(roomForBooking.getNextRoomByType(RoomTypes.SUITE));
         } else {
             System.out.println("Invalid. Please input: 1, 2, or 3.");
@@ -34,13 +33,24 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
         stdInt.nextLine();
         System.out.println("What is your name?");
-        guestForBooking.setGuestName(stdInt.nextLine());
+        Guest guestNameToBook = guestForBooking;
+        guestNameToBook.setGuestName(stdInt.nextLine());
         System.out.println("What is your email?");
-        guestForBooking.setGuestEmail(stdInt.nextLine());
+        Guest guestEmailToBook = guestForBooking;
+        guestEmailToBook.setGuestEmail(stdInt.nextLine());
         System.out.println("What is your phone number?");
-        guestForBooking.setGuestPhoneNumber(stdInt.nextLine());
+        Guest guestPhoneNumberToBook = guestForBooking;
+        guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
+        reservation.setGuest(guestForBooking);
 
-        System.out.println(guestForBooking.toString());
+
+        System.out.println("How many days would you like to book for?");
+        reservation.setDays(stdInt.nextInt());
+
+        reservation.setReservationId(counter++);
+        System.out.println(reservation.getReservationId());
+
+        System.out.println(reservation.toString());
         return reservation;
     }
 
