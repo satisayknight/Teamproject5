@@ -40,7 +40,7 @@ public class HotelReservationClient {
                     break;
                 case 3:
                     System.out.println("What is your reservation id? ");
-                    int resservationId = stdInt.nextInt();
+                    int updateReservationId = stdInt.nextInt();
                     break;
                 case 4:
                     System.out.println("Which kind of room would you like to view? King, Queen, or Suite? ");
@@ -68,8 +68,8 @@ public class HotelReservationClient {
 
     public static void displayMenu() {
         System.out.println("MENU: ");
-        System.out.println("1: Check in or check out.");
-        System.out.println("2: Create a new reservation.");
+        System.out.println("1: Create a new reservation.");
+        System.out.println("2: Check in or check out.");
         System.out.println("3: Update an existing reservation.");
         System.out.println("4: View available room details.");
         System.out.println("5: Exit program.");
