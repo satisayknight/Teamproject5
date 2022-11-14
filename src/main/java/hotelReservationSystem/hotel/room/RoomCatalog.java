@@ -135,4 +135,11 @@ public class RoomCatalog implements ICatalog{
     public Collection<Room> getAll() {
         return catalogOfRooms;
     }
+
+    @Override
+    public String toString() {
+        return "RoomCatalog{" +
+                "catalogOfRooms=" + catalogOfRooms +
+                '}';
+    }
 }
