@@ -2,7 +2,6 @@ package hotelReservationSystem.hotel.room.types;
 
 public enum RoomTypes {
 
-
     KING("1"), QUEEN("2"), SUITE("3");
 
     public final String label;
