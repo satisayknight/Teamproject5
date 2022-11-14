@@ -19,7 +19,7 @@ public class HotelReservationClient {
         do {
             displayMenu();
 
-            System.out.println("Enter your selection: ");
+            System.out.print("Enter your selection: ");
             selection = stdInt.nextInt();
 
             switch (selection) {
@@ -38,23 +38,26 @@ public class HotelReservationClient {
                     System.out.println("What is your reservation id? ");
                     int reservationId = stdInt.nextInt();
                     break;
+
                 case 3:
                     System.out.println("What is your reservation id? ");
                     int updateReservationId = stdInt.nextInt();
                     break;
+
                 case 4:
-                    System.out.println("Which kind of room would you like to view? King, Queen, or Suite? ");
-                    String roomTypeToView = stdInt.nextLine();
-                    if (roomTypeToView.equalsIgnoreCase("King")) {
-
-                    } else if (roomTypeToView.equalsIgnoreCase("Queen")) {
-
-                    } else if (roomTypeToView.equalsIgnoreCase("Suite")) {
-
+                    System.out.println("Which kind of room would you like to view? 1:King, 2:Queen, or 3:Suite? ");
+                    int roomTypeToView = stdInt.nextInt();
+                    if (roomTypeToView == 1) {
+                        System.out.println("Type:King Beds:1 Max Capacity:4 Price:200 Amenities:Full Kitchen");
+                    } else if (roomTypeToView == 2) {
+                        System.out.println("Type:Queen Beds:2 Max Capacity:6 Price:150 Amenities:Half Kitchen");
+                    } else if (roomTypeToView == 3) {
+                        System.out.println("Type:Suite Beds:1 Max Capacity:4 Price:100 Amenities:Microwave");
                     } else {
-                        System.out.println("Invalid. Please input: King, Queen, or Suite.");
+                        System.out.println("Invalid. Please input: 1, 2, or 3.");
                     }
                     break;
+
                 case 5:
                     System.out.println("Thank you for using the HotelReservationSystem JSS program.");
                     break;
