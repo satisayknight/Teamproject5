@@ -1,6 +1,6 @@
 package hotelReservationSystem.guest;
 
-import hotelReservationSystem.guest.membership.MembershipTypes;
+
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -12,7 +12,7 @@ public class Guest {
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
     private static final String PHONE_REGEX_PATTTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
 
-    MembershipTypes membershipType = null;
+    //MembershipTypes membershipType = null;
 
     public Guest() {
     }
@@ -23,10 +23,6 @@ public class Guest {
         this.guestPhoneNumber = phone;
     }
 
-    public Guest(String name, String email, String phone, MembershipTypes type) {
-        this(name, email, phone);
-        this.membershipType = type;
-    }
 
     private void setGuestEmail(String email) {
         Pattern pattern = Pattern.compile(EMAIL_REGEX_PATTERN);
@@ -56,10 +52,6 @@ public class Guest {
         else {
             this.guestName = guestName;
         }
-    }
-
-    public MembershipTypes getMembershipType() {
-        return membershipType;
     }
 
     public String getGuestName() {
