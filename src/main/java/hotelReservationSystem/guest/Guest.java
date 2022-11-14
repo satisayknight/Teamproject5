@@ -25,7 +25,7 @@ public class Guest {
     }
 
 
-    private void setGuestEmail(String email) {
+    public void setGuestEmail(String email) {
         Pattern pattern = Pattern.compile(EMAIL_REGEX_PATTERN);
         if (!pattern.matcher(email).matches()) {
             throw new IllegalArgumentException("Invalid email");
@@ -34,7 +34,7 @@ public class Guest {
         }
     }
 
-    private void setGuestPhoneNumber(String number) {
+    public void setGuestPhoneNumber(String number) {
         Pattern pattern = Pattern.compile(PHONE_REGEX_PATTERN);
 
         if (!pattern.matcher(number).matches()) {
@@ -45,7 +45,7 @@ public class Guest {
     }
 
     public void setGuestName(String guestName) {
-        if (guestName.length() >= 0) {
+        if (guestName.length() == 0) {
             throw new IllegalArgumentException("Invalid name length");
         } else {
             this.guestName = guestName;
@@ -81,7 +81,7 @@ public class Guest {
     public String toString() {
         return "Guest Name: " + this.guestName
                 + " Email: " + this.guestEmail
-                + "Phone Number: " + this.guestPhoneNumber;
+                + " Phone Number: " + this.guestPhoneNumber;
     }
 
 

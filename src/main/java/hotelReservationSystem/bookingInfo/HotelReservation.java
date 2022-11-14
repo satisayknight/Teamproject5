@@ -59,7 +59,7 @@ public class HotelReservation {
     }
 
     public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
+        this.reservationId = currentIndex++;
     }
 
     public Room getRoom() {
@@ -77,8 +77,11 @@ public class HotelReservation {
 
     @Override
     public String toString() {
-//        return "Customer: " + this.guest.toString()
-                 return "Room: " + this.room.toString();
-
+        return "HotelReservation{" +
+                "days=" + days +
+                ", guest=" + guest +
+                ", room=" + room +
+                ", reservationId=" + reservationId +
+                '}';
     }
 }
