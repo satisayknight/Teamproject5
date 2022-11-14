@@ -1,7 +1,5 @@
 package hotelReservationSystem.guest;
 
-
-
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -10,7 +8,8 @@ public class Guest {
     private String guestEmail;
     private String guestPhoneNumber;
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
-    private static final String PHONE_REGEX_PATTTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
+    private static final String PHONE_REGEX_PATTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
+
 
     //MembershipTypes membershipType = null;
 
@@ -35,7 +34,7 @@ public class Guest {
     }
 
     private void setGuestPhoneNumber(String number) {
-        Pattern pattern = Pattern.compile(PHONE_REGEX_PATTTERN);
+        Pattern pattern = Pattern.compile(PHONE_REGEX_PATTERN);
 
         if(!pattern.matcher(number).matches()) {
             throw new IllegalArgumentException("Invalid phone number");
@@ -72,4 +71,6 @@ public class Guest {
                 + " Email: " + this.guestEmail
                 +"Phone Number: " + this.guestPhoneNumber;
     }
+
+
 }
