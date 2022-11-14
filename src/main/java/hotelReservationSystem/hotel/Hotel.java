@@ -51,17 +51,16 @@ public class Hotel {
                     } else {
                         System.out.println("Invalid. Please input: 1, 2, or 3.");
                     }
-                    System.out.println("What is your check-in and check-out date? ");
                     break;
 
                 case 2:
                     System.out.println("What is your reservation id? ");
-                    int reservationId = stdInt.nextInt();
+                    int checkInByReservationId = stdInt.nextInt();
                     break;
 
                 case 3:
                     System.out.println("What is your reservation id? ");
-                    int updateReservationId = stdInt.nextInt();
+                    int viewReservationDetailsById = stdInt.nextInt();
                     break;
 
                 case 4:
@@ -93,7 +92,7 @@ public class Hotel {
         System.out.println("MENU: ");
         System.out.println("1: Create a new reservation.");
         System.out.println("2: Check in or check out.");
-        System.out.println("3: Update an existing reservation.");
+        System.out.println("3: View your reservation details.");
         System.out.println("4: View available room details.");
         System.out.println("5: Exit program.");
     }
