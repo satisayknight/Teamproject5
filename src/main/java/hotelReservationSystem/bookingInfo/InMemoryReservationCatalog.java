@@ -1,6 +1,7 @@
 package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
+import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.RoomCatalog;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
 
@@ -13,20 +14,24 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     public static HotelReservation createNewHotelReservation() {
         Scanner stdInt = new Scanner(System.in);
         HotelReservation reservation = new HotelReservation();
-        RoomCatalog roomForBooking = new RoomCatalog();
+        RoomCatalog availableRooms = new RoomCatalog();
         Guest guestForBooking = new Guest();
 
         System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
         int roomType = stdInt.nextInt();
+        Room roomReserved = null;
         if (roomType == 1) {
-            reservation.setRoom(roomForBooking.getNextRoomByType(RoomTypes.KING));
-            System.out.println(roomForBooking.getNextRoomByType(RoomTypes.KING));
+            roomReserved=availableRooms.getNextRoomByType(RoomTypes.KING);
+            reservation.setRoom(roomReserved);
+            System.out.println(roomReserved);
         } else if (roomType == 2) {
-            reservation.setRoom(roomForBooking.getNextRoomByType(RoomTypes.QUEEN));
-            System.out.println(roomForBooking.getNextRoomByType(RoomTypes.QUEEN));
+            roomReserved=availableRooms.getNextRoomByType(RoomTypes.QUEEN);
+            reservation.setRoom(roomReserved);
+            System.out.println(roomReserved);
         } else if (roomType == 3) {
-            reservation.setRoom(roomForBooking.getNextRoomByType(RoomTypes.SUITE));
-            System.out.println(roomForBooking.getNextRoomByType(RoomTypes.SUITE));
+            roomReserved=availableRooms.getNextRoomByType(RoomTypes.SUITE);
+            reservation.setRoom(roomReserved);
+            System.out.println(roomReserved);
         } else {
             System.out.println("Invalid. Please input: 1, 2, or 3.");
         }
@@ -50,7 +55,11 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         reservation.setReservationId(counter++);
         System.out.println(reservation.getReservationId());
 
+        System.out.println("Your reservation is successful. The reservation information:");
         System.out.println(reservation.toString());
+        //change the reserved room to taken:
+        roomReserved.changeRoomToTaken();
+        //System.out.println(roomReserved);
         return reservation;
     }
 
