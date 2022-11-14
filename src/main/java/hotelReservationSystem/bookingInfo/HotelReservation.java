@@ -33,14 +33,8 @@ public class HotelReservation {
     public int[] createANewRoomReservation(RoomTypes roomTypes) {
         int i = reservationId[currentIndex++];
         System.out.println("When is your check-in and check-out? ");
-        System.out.println("Your reservationId is: " + i);
         return reservationId;
     }
-
-
-
-
-
 
 
     public Room getRoom() {

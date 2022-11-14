@@ -12,7 +12,6 @@ public class Room {
     public Room(String roomNumber, RoomTypes roomType) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
-
     }
 
 
