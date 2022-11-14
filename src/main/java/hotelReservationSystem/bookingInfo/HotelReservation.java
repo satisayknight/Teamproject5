@@ -55,7 +55,7 @@ public class HotelReservation {
 
     private double calclateTotalCost(){
         long totalDaysStayed = ChronoUnit.DAYS.between(checkInDate, checkOutDate);
-        double totalCost = Price.calclateCost( room.getRoomTypes(), totalDaysStayed);
+        double totalCost = Price.calculateCosts( room.getRoomTypes(), totalDaysStayed);
         return totalCost;
     }
 

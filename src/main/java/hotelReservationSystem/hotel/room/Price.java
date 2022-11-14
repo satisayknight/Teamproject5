@@ -10,7 +10,7 @@ public class Price {
     final static int VIP_COST = 100;
 
 
-    public static double calclateCost(RoomTypes roomTypes, long totalDaysStayed) {
+    public static double calculateCosts(RoomTypes roomTypes, long totalDaysStayed) {
         double stayingcost = 0;
         if (roomTypes.equals(Rooms.KING)) {
             stayingcost = KING_COST * totalDaysStayed;
