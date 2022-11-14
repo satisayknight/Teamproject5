@@ -38,10 +38,12 @@ public class HotelReservationClient {
                     System.out.println("What is your reservation id? ");
                     int reservationId = stdInt.nextInt();
                     break;
+
                 case 3:
                     System.out.println("What is your reservation id? ");
                     int updateReservationId = stdInt.nextInt();
                     break;
+
                 case 4:
                     System.out.println("Which kind of room would you like to view? King, Queen, or Suite? ");
                     String roomTypeToView = stdInt.nextLine();
@@ -55,6 +57,7 @@ public class HotelReservationClient {
                         System.out.println("Invalid. Please input: King, Queen, or Suite.");
                     }
                     break;
+
                 case 5:
                     System.out.println("Thank you for using the HotelReservationSystem JSS program.");
                     break;
