@@ -1,5 +1,6 @@
 package hotelReservationSystem.bookingInfo;
 
+import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.Hotel;
 import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.RoomCatalog;
@@ -14,6 +15,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         Scanner stdInt = new Scanner(System.in);
         HotelReservation reservation = new HotelReservation();
         RoomCatalog roomForBooking = new RoomCatalog();
+        Guest guestForBooking = new Guest();
+
         System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
         int roomType = stdInt.nextInt();
         if (roomType == 1) {
@@ -29,6 +32,15 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             System.out.println("Invalid. Please input: 1, 2, or 3.");
         }
 
+        stdInt.nextLine();
+        System.out.println("What is your name?");
+        guestForBooking.setGuestName(stdInt.nextLine());
+        System.out.println("What is your email?");
+        guestForBooking.setGuestEmail(stdInt.nextLine());
+        System.out.println("What is your phone number?");
+        guestForBooking.setGuestPhoneNumber(stdInt.nextLine());
+
+        System.out.println(guestForBooking.toString());
         return reservation;
     }
 
