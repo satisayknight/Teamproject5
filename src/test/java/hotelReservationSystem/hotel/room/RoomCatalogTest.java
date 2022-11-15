@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoomCatalogTest extends HotelReservation {
-    private InMemoryReservationCatalog catalog;
+
+    private ICatalog catalog =  new RoomCatalog();;
 
     @Before
-    public void setUp() {
-        catalog = new InMemoryReservationCatalog();
+    public void setUp() {catalog =  new RoomCatalog();
     }
 
     @Test
@@ -21,14 +21,15 @@ class RoomCatalogTest extends HotelReservation {
 
     @Test
     void findByRoomNumber() {
-        HotelReservation item1 = catalog.findById(101);
-        assertEquals(Integer.valueOf(101), item1.getRoom());
+        Room item1 = catalog.findByRoomNumber("101");
+
+        assertEquals("101", item1.getRoomNumber());
     }
 
 
     @Test
-    public void testFindByIdNotExists() {
-         assertNull(catalog.findById(2000));
+    public void testFindByRoomNotExists() {
+         assertNull(catalog.findByRoomNumber(String.valueOf(1001)));
       }
     @Test
     void findByRoomType() {
