@@ -42,7 +42,7 @@ class RoomCatalogTest extends HotelReservation {
           Collection<Room> items = catalog.findByRoomType(RoomTypes.KING);
           // sort the results by id (for testing purposes)
           List<Room> sortedItems = new ArrayList<>(items);
-          //sortedItems.sort(null);  // natural order (id)
+          //sortedItems.sort();  // natural order (id)
           //System.out.println(sortedItems);
           assertEquals(20, sortedItems.size());
           assertEquals("101", sortedItems.get(0).getRoomNumber());
@@ -82,7 +82,4 @@ class RoomCatalogTest extends HotelReservation {
     void getAll() {
     }
 
-    @Test
-    void testToString() {
-    }
 }
