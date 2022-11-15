@@ -9,9 +9,10 @@ import java.util.*;
 
 public class InMemoryReservationCatalog implements IReservationCatalog {
     private static int counter = 0;
-    private List<HotelReservation> hotelReservationList;
+    private static List<HotelReservation> hotelReservationList = new ArrayList<>();
 
     public static HotelReservation createNewHotelReservation() {
+        counter = counter + 1;
         Scanner stdInt = new Scanner(System.in);
         HotelReservation reservation = new HotelReservation();
         RoomCatalog availableRooms = new RoomCatalog();
@@ -52,7 +53,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         System.out.println("How many days would you like to book for?");
         reservation.setDays(stdInt.nextInt());
 
-        reservation.setReservationId(counter++);
+        reservation.setReservationId(counter);
         System.out.println(reservation.getReservationId());
 
         System.out.println("Your reservation is successful. The reservation information:");
@@ -60,6 +61,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         //change the reserved room to taken:
         roomReserved.changeRoomToTaken();
         //System.out.println(roomReserved);
+        hotelReservationList.add(reservation);
         return reservation;
     }
 
@@ -73,6 +75,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 break;
             }
         }
+        System.out.println(result.toString());
         return result;
     }
 
