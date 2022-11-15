@@ -12,7 +12,10 @@ public interface ICatalog {
      */
     public Room findByRoomNumber(String roomNumber);
 
-
+    /**
+     * Returns the next available room with room type
+     */
+    public Room getNextRoomByType(RoomTypes roomType);
 
     /**
      * Returns a collection of rooms that are of

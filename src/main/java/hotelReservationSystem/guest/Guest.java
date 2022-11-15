@@ -45,7 +45,7 @@ public class Guest {
     }
 
     public void setGuestName(String guestName) {
-        if (guestName.length() >= 0) {
+        if (guestName.length() == 0) {
             throw new IllegalArgumentException("Invalid name length");
         } else {
             this.guestName = guestName;
@@ -81,7 +81,7 @@ public class Guest {
     public String toString() {
         return "Guest Name: " + this.guestName
                 + " Email: " + this.guestEmail
-                + "Phone Number: " + this.guestPhoneNumber;
+                + " Phone Number: " + this.guestPhoneNumber;
     }
 
 
