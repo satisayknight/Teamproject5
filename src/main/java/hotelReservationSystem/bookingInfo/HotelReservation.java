@@ -10,12 +10,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class HotelReservation {
-    Scanner stdInt = new Scanner(System.in);
     private int days;
     private Guest guest;
     private Room room;
     private int reservationId;
-    private int currentIndex = 0;
     private double totalCost;
 
     public HotelReservation() {
@@ -59,7 +57,7 @@ public class HotelReservation {
     }
 
     public void setReservationId(int reservationId) {
-        this.reservationId = currentIndex++;
+        this.reservationId = reservationId;
     }
 
     public Room getRoom() {

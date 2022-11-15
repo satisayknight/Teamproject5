@@ -16,11 +16,11 @@ public class Hotel {
     public void operate(){
 
         Scanner stdInt = new Scanner(System.in);
-        Room[] amountOfRoomsRequested;
         int selection = 0;
 
         do {
             displayMenu();
+            InMemoryReservationCatalog hotelReservation = new InMemoryReservationCatalog();
 
             System.out.print("Enter your selection: ");
             selection = stdInt.nextInt();
@@ -28,13 +28,13 @@ public class Hotel {
             switch (selection) {
 
                 case 1:
-                    InMemoryReservationCatalog hotelReservation = new InMemoryReservationCatalog();
                     hotelReservation.createNewHotelReservation();
                     break;
 
                 case 2:
                     System.out.println("What is your reservation id? ");
                     int viewReservationDetailsById = stdInt.nextInt();
+                    hotelReservation.findById(viewReservationDetailsById);
                     break;
 
                 case 3:
