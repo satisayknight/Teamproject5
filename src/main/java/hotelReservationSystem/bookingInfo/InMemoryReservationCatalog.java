@@ -21,15 +21,15 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         int roomType = stdInt.nextInt();
         Room roomReserved = null;
         if (roomType == 1) {
-            roomReserved=availableRooms.getNextRoomByType(RoomTypes.KING);
+            roomReserved=availableRooms.getNextVacantRoomByType(RoomTypes.KING);
             reservation.setRoom(roomReserved);
             System.out.println(roomReserved);
         } else if (roomType == 2) {
-            roomReserved=availableRooms.getNextRoomByType(RoomTypes.QUEEN);
+            roomReserved=availableRooms.getNextVacantRoomByType(RoomTypes.QUEEN);
             reservation.setRoom(roomReserved);
             System.out.println(roomReserved);
         } else if (roomType == 3) {
-            roomReserved=availableRooms.getNextRoomByType(RoomTypes.SUITE);
+            roomReserved=availableRooms.getNextVacantRoomByType(RoomTypes.SUITE);
             reservation.setRoom(roomReserved);
             System.out.println(roomReserved);
         } else {
