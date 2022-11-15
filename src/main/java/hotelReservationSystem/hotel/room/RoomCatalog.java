@@ -78,7 +78,7 @@ public class RoomCatalog implements ICatalog{
 
 
     @Override
-    public Room getNextVacantRoomByType(RoomTypes roomType) {
+    public Room getNextRoomByType(RoomTypes roomType) {
         List<Room> availableRoomByRoomType = findAvailableRoomByRoomType(roomType);
         return availableRoomByRoomType.get(0);
     }

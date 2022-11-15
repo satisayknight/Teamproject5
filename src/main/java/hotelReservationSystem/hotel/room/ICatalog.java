@@ -15,7 +15,7 @@ public interface ICatalog {
     /**
      * Returns the next available room with room type
      */
-    public Room getNextVacantRoomByType(RoomTypes roomType);
+    public Room getNextRoomByType(RoomTypes roomType);
 
     /**
      * Returns a collection of rooms that are of
