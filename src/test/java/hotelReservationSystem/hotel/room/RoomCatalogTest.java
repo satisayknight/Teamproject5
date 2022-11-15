@@ -68,10 +68,19 @@ class RoomCatalogTest extends HotelReservation {
 
     @Test
     void findAvailableRoomByRoomType() {
+        Collection<Room> items = catalog.findAvailableRoomByRoomType(RoomTypes.KING);
+        List<Room> sortedItems = new ArrayList<>(items);
+        assertEquals(20, sortedItems.size());
+        assertEquals("101", sortedItems.get(0).getRoomNumber());
+        assertEquals("102", sortedItems.get(1).getRoomNumber());
+
     }
 
     @Test
     void findTakenRoomByRoomType() {
+        Collection<Room> items = catalog.findTakenRoomByRoomType(RoomTypes.KING);
+        List<Room> sortedItems = new ArrayList<>(items);
+        assertEquals(0, sortedItems.size());
     }
 
     @Test
