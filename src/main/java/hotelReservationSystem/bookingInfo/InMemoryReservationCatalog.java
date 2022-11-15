@@ -26,13 +26,13 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         int roomType = stdInt.nextInt();
         Room roomReserved = null;
         if (roomType == 1) {
-            roomReserved=availableRooms.getNextRoomByType(RoomTypes.KING);
+            roomReserved = availableRooms.getNextRoomByType(RoomTypes.KING);
             reservation.setRoom(roomReserved);
         } else if (roomType == 2) {
-            roomReserved=availableRooms.getNextRoomByType(RoomTypes.QUEEN);
+            roomReserved = availableRooms.getNextRoomByType(RoomTypes.QUEEN);
             reservation.setRoom(roomReserved);
         } else if (roomType == 3) {
-            roomReserved=availableRooms.getNextRoomByType(RoomTypes.SUITE);
+            roomReserved = availableRooms.getNextRoomByType(RoomTypes.SUITE);
             reservation.setRoom(roomReserved);
         } else {
             System.out.println("Invalid. Please input: 1, 2, or 3.");
@@ -89,21 +89,26 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
 
     @Override
-    public HotelReservation findById(int id) {
+    public HotelReservation findById(int id) throws NullPointerException {
         HotelReservation result = null;
 
-        for (HotelReservation reservation : hotelReservationList) {
-            if (reservation.getReservationId() == id) {
-                result = reservation;
-                break;
+        try {
+
+            for (HotelReservation reservation : hotelReservationList) {
+                if (reservation.getReservationId() == id) {
+                    result = reservation;
+                    break;
+                }
             }
+            System.out.println(result.toString());
+            System.out.println("Total Cost: " + result.getTotalCost() + " dollars.");
+
+        } catch (NullPointerException e) {
+            System.out.println("The reservation ID is not valid.\nPlease try again.");
         }
-        System.out.println(result.toString());
-        System.out.println("Total Cost: " + result.getTotalCost() + " dollars.");
+
         return result;
     }
-
-
 
 
     @Override
