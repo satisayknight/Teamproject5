@@ -1,6 +1,7 @@
 package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
+import hotelReservationSystem.hotel.room.Price;
 import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.RoomCatalog;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
@@ -18,7 +19,9 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         HotelReservation reservation = new HotelReservation();
         //RoomCatalog availableRooms = new RoomCatalog();
         Guest guestForBooking = new Guest();
+        Price bookingTotalCost = new Price();
 
+        //Set roomType and set Room
         System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
         int roomType = stdInt.nextInt();
         Room roomReserved = null;
@@ -38,6 +41,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             System.out.println("Invalid. Please input: 1, 2, or 3.");
         }
 
+        //Get Guest info
         stdInt.nextLine();
         System.out.println("What is your name?");
         Guest guestNameToBook = guestForBooking;
@@ -50,19 +54,24 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
         reservation.setGuest(guestForBooking);
 
-
+        //Days stayed
         System.out.println("How many days would you like to book for?");
         reservation.setDays(stdInt.nextInt());
 
+        //Set reservationId
         reservation.setReservationId(counter);
         System.out.println(reservation.getReservationId());
 
+        //Display details
         System.out.println("Your reservation is successful. The reservation information:");
         System.out.println(reservation.toString());
         //change the reserved room to taken:
         roomReserved.changeRoomToTaken();
+        reservation.setRoom(roomReserved);
         //System.out.println(roomReserved);
         hotelReservationList.add(reservation);
+
+        bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays());
         return reservation;
     }
 
@@ -77,6 +86,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             }
         }
         System.out.println(result.toString());
+        System.out.println(result.getTotalCost());
         return result;
     }
 
