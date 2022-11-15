@@ -55,7 +55,7 @@ public class Room {
     public String toString() {
         return
                 "Type: " + roomType +
-                "\nRoom Number: " + roomNumber +
-                "\nis Vacant: " + isVacant;
+                "\nRoom Number: " + roomNumber;
+                //"\nis Vacant: " + isVacant;
     }
 }

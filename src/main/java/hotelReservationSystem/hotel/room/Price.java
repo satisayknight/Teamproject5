@@ -18,7 +18,7 @@ public class Price {
         } else if (roomTypes.equals(roomTypes.SUITE)) {
             stayingCost = SUITE_COST * totalDaysStayed;
         }
-        System.out.println("Total cost: " + stayingCost);
+        System.out.println("Total Cost: " + stayingCost);
         return stayingCost;
     }
 }
