@@ -27,15 +27,12 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         if (roomType == 1) {
             roomReserved=availableRooms.getNextRoomByType(RoomTypes.KING);
             reservation.setRoom(roomReserved);
-            System.out.println(roomReserved);
         } else if (roomType == 2) {
             roomReserved=availableRooms.getNextRoomByType(RoomTypes.QUEEN);
             reservation.setRoom(roomReserved);
-            System.out.println(roomReserved);
         } else if (roomType == 3) {
             roomReserved=availableRooms.getNextRoomByType(RoomTypes.SUITE);
             reservation.setRoom(roomReserved);
-            System.out.println(roomReserved);
         } else {
             System.out.println("Invalid. Please input: 1, 2, or 3.");
         }
@@ -59,7 +56,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
         //Set reservationId
         reservation.setReservationId(counter);
-        System.out.println(reservation.getReservationId());
 
         //Display details
         System.out.println("Your reservation is successful. The reservation information:");
@@ -70,9 +66,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         //System.out.println(roomReserved);
 
         //Calculate totalCost for reservation
-        hotelReservationList.add(reservation);
         reservation.setTotalCost(bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays()));
 
+        //Add this reservation to the list of reservations
+        hotelReservationList.add(reservation);
         return reservation;
     }
 
@@ -103,8 +100,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
     @Override
     public String toString() {
-        return "InMemoryReservationCatalog{" +
-                "hotelReservationList=" + hotelReservationList +
-                '}';
+        return "InMemoryReservationCatalog: " +
+                "\nHotel Reservation List: " + hotelReservationList;
     }
 }
