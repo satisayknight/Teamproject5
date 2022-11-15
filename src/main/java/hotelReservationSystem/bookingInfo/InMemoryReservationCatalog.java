@@ -99,11 +99,14 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         int reservationId = stdInt.nextInt();
         findById(reservationId);
         stdInt.nextLine();
-        System.out.println("Please input your card information.");
-        String cardInformation = stdInt.nextLine();
-        guestForBooking.setGuestCardNumber(cardInformation);
-        System.out.println(guestForBooking.getGuestCardNumber());
-        System.out.println(guestForBooking.isHasBalance());
+        if (guestForBooking.isHasBalance() == true) {
+            System.out.println("Please input your card information. [Correct Format example 1234-5678 9123 4567]");
+            String cardInformation = stdInt.nextLine();
+            guestForBooking.setGuestCardNumber(cardInformation);
+            guestForBooking.setHasBalance(false);
+        } else {
+            System.out.println("your balance has been paid");
+        }
         return null;
     }
 
