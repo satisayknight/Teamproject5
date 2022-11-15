@@ -5,15 +5,16 @@ import hotelReservationSystem.bookingInfo.InMemoryReservationCatalog;
 import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hotel {
 
-    private static final int totalNumberOfAvailableKingRoom=20;
-    private static final int totalNumberOfAvailableQueenRoom=20;
-    private static final int totalNumberOfAvailableSuite=20;
+    private static final int totalNumberOfAvailableKingRoom = 20;
+    private static final int totalNumberOfAvailableQueenRoom = 20;
+    private static final int totalNumberOfAvailableSuite = 20;
 
-    public void operate(){
+    public void operate() {
 
         Scanner stdInt = new Scanner(System.in);
         int selection = 0;
@@ -63,7 +64,7 @@ public class Hotel {
                     System.out.println("Invalid choice.");
             }
         }
-        while (selection != 4);
+        while (selection != 9);
     }
 
     public static void displayMenu() {
@@ -74,8 +75,6 @@ public class Hotel {
         System.out.println("4: Pay for reservation.");
         System.out.println("9: Exit program.");
     }
-
-
 
 
 }
