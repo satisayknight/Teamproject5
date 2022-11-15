@@ -15,11 +15,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoomCatalogTest extends HotelReservation {
 
-    private ICatalog catalog =  new RoomCatalog();
+    private ICatalog catalog = new RoomCatalog();
 
     @Before
     //not working
-    public void setUp() {catalog =  new RoomCatalog();
+    public void setUp() {
+        catalog = new RoomCatalog();
     }
 
     @Test
@@ -34,37 +35,52 @@ class RoomCatalogTest extends HotelReservation {
 
     @Test
     public void testFindByRoomNotExists() {
-         assertNull(catalog.findByRoomNumber(String.valueOf(1001)));
-      }
+        assertNull(catalog.findByRoomNumber(String.valueOf(1001)));
+    }
 
 
-      @Test
+    @Test
     void findByRoomType() {
-          Collection<Room> items = catalog.findByRoomType(RoomTypes.KING);
-          // sort the results by id (for testing purposes)
-          List<Room> sortedItems = new ArrayList<>(items);
-          //sortedItems.sort();  // natural order (id)
-          //System.out.println(sortedItems);
-          assertEquals(20, sortedItems.size());
-          assertEquals("101", sortedItems.get(0).getRoomNumber());
-          assertEquals("102", sortedItems.get(1).getRoomNumber());
+        Collection<Room> items = catalog.findByRoomType(RoomTypes.KING);
+        // sort the results by id (for testing purposes)
+        List<Room> sortedItems = new ArrayList<>(items);
+        //sortedItems.sort();  // natural order (id)
+        //System.out.println(sortedItems);
+        assertEquals(20, sortedItems.size());
+        assertEquals("101", sortedItems.get(0).getRoomNumber());
+        assertEquals("102", sortedItems.get(1).getRoomNumber());
 
-          Collection<Room> items2 = catalog.findByRoomType(RoomTypes.QUEEN);
-          List<Room> sortedItems2 = new ArrayList<>(items2);
-          //System.out.println(sortedItems2);
-          assertEquals(20, sortedItems2.size());
-          assertEquals("121", sortedItems2.get(0).getRoomNumber());
-          assertEquals("122", sortedItems2.get(1).getRoomNumber());
+        Collection<Room> items2 = catalog.findByRoomType(RoomTypes.QUEEN);
+        List<Room> sortedItems2 = new ArrayList<>(items2);
+        //System.out.println(sortedItems2);
+        assertEquals(20, sortedItems2.size());
+        assertEquals("121", sortedItems2.get(0).getRoomNumber());
+        assertEquals("122", sortedItems2.get(1).getRoomNumber());
 
-          Collection<Room> items3 = catalog.findByRoomType(RoomTypes.SUITE);
-          List<Room> sortedItems3 = new ArrayList<>(items3);
-          //System.out.println(sortedItems2);
-          assertEquals(20, sortedItems3.size());
-          assertEquals("141", sortedItems3.get(0).getRoomNumber());
-          assertEquals("142", sortedItems3.get(1).getRoomNumber());
+        Collection<Room> items3 = catalog.findByRoomType(RoomTypes.SUITE);
+        List<Room> sortedItems3 = new ArrayList<>(items3);
+        //System.out.println(sortedItems2);
+        assertEquals(20, sortedItems3.size());
+        assertEquals("141", sortedItems3.get(0).getRoomNumber());
+        assertEquals("142", sortedItems3.get(1).getRoomNumber());
 
 
+    }
 
+    @Test
+    void findAvailableRoomByRoomType_with_All_rooms_Taken() {
+
+        Collection<Room> items = catalog.findTakenRoomByRoomType(RoomTypes.KING);
+        Collection<Room> ans = new ArrayList<>(items);
+        Collection<Room> roomOfInterestedRoomType = catalog.findByRoomType(RoomTypes.KING);
+        for (Room r : roomOfInterestedRoomType) {
+            if (r.getIsVacant() == true) {
+                r.changeRoomToTaken();
+                ans.add(r);
+            }
+        }
+        Collection<Room> roomsTaken = catalog.findAvailableRoomByRoomType(RoomTypes.KING);
+        assertEquals(0, roomsTaken.size());
     }
 
     @Test
@@ -92,25 +108,20 @@ class RoomCatalogTest extends HotelReservation {
         Collection<Room> ans = new ArrayList<>(items);
         Collection<Room> roomOfInterestedRoomType = catalog.findByRoomType(RoomTypes.KING);
         for (Room r : roomOfInterestedRoomType) {
-            if(r.getIsVacant()==true){
+            if (r.getIsVacant() == true) {
                 r.changeRoomToTaken();
-             ans.add(r);}
-       // if (r.getIsVacant()==false ) {
-       //     ans.add(r);
-       // }
+                ans.add(r);
+            }
         }
         assertEquals(20, ans.size());
     }
 
     @Test
     void totalNumberOfRooms() {
-        int items = catalog.totalNumberOfRooms();;
+        int items = catalog.totalNumberOfRooms();
         //System.out.println(items);
-        assertEquals(60,items);
+        assertEquals(60, items);
     }
 
-    @Test
-    void getAll() {
-    }
 
 }
