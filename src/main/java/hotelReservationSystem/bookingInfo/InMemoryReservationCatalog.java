@@ -17,7 +17,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         counter = counter + 1;
         Scanner stdInt = new Scanner(System.in);
         HotelReservation reservation = new HotelReservation();
-        //RoomCatalog availableRooms = new RoomCatalog();
         Guest guestForBooking = new Guest();
         Price bookingTotalCost = new Price();
 
@@ -69,9 +68,11 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         roomReserved.changeRoomToTaken();
         reservation.setRoom(roomReserved);
         //System.out.println(roomReserved);
-        hotelReservationList.add(reservation);
 
-        bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays());
+        //Calculate totalCost for reservation
+        hotelReservationList.add(reservation);
+        reservation.setTotalCost(bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays()));
+
         return reservation;
     }
 
