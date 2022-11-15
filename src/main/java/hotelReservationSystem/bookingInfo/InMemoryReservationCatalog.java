@@ -89,7 +89,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
 
     @Override
-    public HotelReservation findById(int id) throws NullPointerException {
+    public HotelReservation findById(int id) throws NullPointerException, InputMismatchException {
         HotelReservation result = null;
 
         try {
@@ -103,10 +103,12 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             System.out.println(result.toString());
             System.out.println("Total Cost: " + result.getTotalCost() + " dollars.");
 
-        } catch (NullPointerException e) {
-            System.out.println("The reservation ID is not valid.\nPlease try again.");
-        }
+        } catch (NullPointerException | InputMismatchException e) {
 
+            System.out.println("The reservation ID is not valid.\nPlease try again.");
+
+
+        }
         return result;
     }
 
