@@ -20,7 +20,7 @@ class RoomCatalogTest extends HotelReservation {
     @Before
     //not working
     public void setUp() {
-        catalog = new RoomCatalog();
+         ICatalog catalog = new RoomCatalog();
     }
 
     @Test
