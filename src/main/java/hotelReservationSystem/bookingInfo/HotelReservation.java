@@ -68,6 +68,10 @@ public class HotelReservation {
         return totalCost;
     }
 
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
     private double calculateTotalCost(int days){
         double totalCost = Price.calculateCosts( room.getRoomTypes(), days);
         System.out.println("Total Cost: " + totalCost);
