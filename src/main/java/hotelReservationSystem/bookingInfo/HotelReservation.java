@@ -74,17 +74,15 @@ public class HotelReservation {
 
     private double calculateTotalCost(int days){
         double totalCost = Price.calculateCosts( room.getRoomTypes(), days);
-        System.out.println("Total Cost: " + totalCost);
+        System.out.println("Total Cost: " + totalCost + " dollars.");
         return totalCost;
     }
 
     @Override
     public String toString() {
-        return "HotelReservation{" +
-                "days=" + days +
-                ", guest=" + guest +
-                ", room=" + room +
-                ", reservationId=" + reservationId +
-                '}';
+        return "\nDays: " + days +
+                "\nGuest " + guest +
+                "\nRoom: " + room +
+                "\nReservation ID: " + reservationId;
     }
 }
