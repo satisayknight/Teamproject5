@@ -6,4 +6,6 @@ public interface IReservationCatalog {
     public HotelReservation findById(int id);
     public int size();
     public Collection<HotelReservation> getAll();
+    public HotelReservation createNewHotelReservation();
+    public HotelReservation payForReservation();
 }

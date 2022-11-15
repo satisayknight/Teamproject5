@@ -52,6 +52,10 @@ public class Hotel {
                     break;
 
                 case 4:
+                    hotelReservation.payForReservation();
+                    break;
+
+                case 9:
                     System.out.println("Thank you for using the HotelReservationSystem JSS program.");
                     break;
 
@@ -67,7 +71,8 @@ public class Hotel {
         System.out.println("1: Create a new reservation.");
         System.out.println("2: View your reservation details.");
         System.out.println("3: View available room details.");
-        System.out.println("4: Exit program.");
+        System.out.println("4: Pay for reservation.");
+        System.out.println("9: Exit program.");
     }
 
 

@@ -4,13 +4,17 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Guest {
+    //Constants for validation
+    private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
+    private static final String PHONE_REGEX_PATTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
+    private static final String CREDITCARD_REGEX_PATTERN = "/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$/";
+
     private String guestName;
     private String guestEmail;
     private String guestPhoneNumber;
     private String guestCardNumber;
-    private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
-    private static final String PHONE_REGEX_PATTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
-    private static final String CREDITCARD_REGEX_PATTERN = "/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$/";
+    private boolean hasBalance = true;
+
 
 
     //MembershipTypes membershipType = null;
@@ -24,6 +28,13 @@ public class Guest {
         this.guestPhoneNumber = phone;
     }
 
+    public boolean isHasBalance() {
+        return hasBalance;
+    }
+
+    public void setHasBalance(boolean hasBalance) {
+        this.hasBalance = hasBalance;
+    }
 
     public void setGuestEmail(String email) {
         Pattern pattern = Pattern.compile(EMAIL_REGEX_PATTERN);
@@ -62,6 +73,7 @@ public class Guest {
             throw new IllegalArgumentException("Invalid Card number");
         } else {
             this.guestCardNumber = guestCardNumber;
+            setHasBalance(false);
         }
     }
 

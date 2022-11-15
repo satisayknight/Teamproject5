@@ -9,18 +9,19 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 import java.util.*;
 
 public class InMemoryReservationCatalog implements IReservationCatalog {
+    Scanner stdInt = new Scanner(System.in);
     private static int counter = 0;
     private static List<HotelReservation> hotelReservationList = new ArrayList<>();
     private static RoomCatalog availableRooms = new RoomCatalog();
+    Guest guestForBooking = new Guest();
+    HotelReservation reservation = new HotelReservation();
+    Price bookingTotalCost = new Price();
 
-    public static HotelReservation createNewHotelReservation() {
+    public HotelReservation createNewHotelReservation() {
+        //Increment counter by 1 for every hotel reservation made for unique reservationId
         counter = counter + 1;
-        Scanner stdInt = new Scanner(System.in);
-        HotelReservation reservation = new HotelReservation();
-        Guest guestForBooking = new Guest();
-        Price bookingTotalCost = new Price();
 
-        //Set roomType and set Room
+        //Set roomType and set Room based on user inputs
         System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
         int roomType = stdInt.nextInt();
         Room roomReserved = null;
@@ -63,7 +64,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         //change the reserved room to taken:
         roomReserved.changeRoomToTaken();
         reservation.setRoom(roomReserved);
-        //System.out.println(roomReserved);
 
         //Calculate totalCost for reservation
         reservation.setTotalCost(bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays()));
@@ -72,6 +72,21 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         hotelReservationList.add(reservation);
         return reservation;
     }
+
+    @Override
+    public HotelReservation payForReservation() {
+        System.out.println("What is your reservation ID?");
+        int reservationId = stdInt.nextInt();
+        findById(reservationId);
+        stdInt.nextLine();
+        System.out.println("Please input your card information.");
+        String cardInformation = stdInt.nextLine();
+        guestForBooking.setGuestCardNumber(cardInformation);
+        System.out.println(guestForBooking.getGuestCardNumber());
+        System.out.println(guestForBooking.isHasBalance());
+        return null;
+    }
+
 
     @Override
     public HotelReservation findById(int id) {
@@ -84,9 +99,12 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             }
         }
         System.out.println(result.toString());
-        System.out.println(result.getTotalCost());
+        System.out.println("Total Cost: " + result.getTotalCost() + " dollars.");
         return result;
     }
+
+
+
 
     @Override
     public int size() {
