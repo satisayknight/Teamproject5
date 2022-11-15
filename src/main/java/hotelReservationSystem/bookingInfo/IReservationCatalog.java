@@ -1,5 +1,7 @@
 package hotelReservationSystem.bookingInfo;
 
+import hotelReservationSystem.guest.Guest;
+
 import java.util.Collection;
 
 public interface IReservationCatalog {
@@ -7,5 +9,5 @@ public interface IReservationCatalog {
     public int size();
     public Collection<HotelReservation> getAll();
     public HotelReservation createNewHotelReservation();
-    public HotelReservation payForReservation();
+    public Guest payForReservation();
 }

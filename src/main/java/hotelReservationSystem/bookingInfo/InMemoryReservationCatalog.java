@@ -108,7 +108,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     }
 
     @Override
-    public HotelReservation payForReservation() {
+    public Guest payForReservation() {
         System.out.println("What is your reservation ID?");
         int reservationId = stdInt.nextInt();
         findById(reservationId);
@@ -121,7 +121,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         } else {
             System.out.println("your balance has been paid");
         }
-        return null;
+        return guestForBooking;
     }
 
 
