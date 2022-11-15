@@ -53,10 +53,9 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "roomType=" + roomType +
-                ", roomNumber='" + roomNumber + '\'' +
-                ", isVacant=" + isVacant +
-                '}';
+        return
+                "Type: " + roomType +
+                "\nRoom Number: " + roomNumber +
+                "\nis Vacant: " + isVacant;
     }
 }

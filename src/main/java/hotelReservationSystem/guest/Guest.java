@@ -79,9 +79,10 @@ public class Guest {
 
     @Override
     public String toString() {
-        return "Guest Name: " + this.guestName
-                + " Email: " + this.guestEmail
-                + " Phone Number: " + this.guestPhoneNumber;
+        return
+                "Name: " + this.guestName
+                + "\nEmail: " + this.guestEmail
+                + "\nPhone Number: " + this.guestPhoneNumber;
     }
 
 
