@@ -10,12 +10,13 @@ import java.util.*;
 public class InMemoryReservationCatalog implements IReservationCatalog {
     private static int counter = 0;
     private static List<HotelReservation> hotelReservationList = new ArrayList<>();
+    private static RoomCatalog availableRooms = new RoomCatalog();
 
     public static HotelReservation createNewHotelReservation() {
         counter = counter + 1;
         Scanner stdInt = new Scanner(System.in);
         HotelReservation reservation = new HotelReservation();
-        RoomCatalog availableRooms = new RoomCatalog();
+        //RoomCatalog availableRooms = new RoomCatalog();
         Guest guestForBooking = new Guest();
 
         System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
