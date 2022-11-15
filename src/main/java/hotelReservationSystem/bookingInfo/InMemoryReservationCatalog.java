@@ -89,7 +89,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
 
     @Override
-    public HotelReservation findById(int id) throws NullPointerException {
+    public HotelReservation findById(int id) throws NullPointerException, InputMismatchException{
         HotelReservation result = null;
 
         try {
