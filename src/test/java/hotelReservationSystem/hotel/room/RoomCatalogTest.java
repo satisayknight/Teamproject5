@@ -9,9 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoomCatalogTest extends HotelReservation {
 
-    private ICatalog catalog =  new RoomCatalog();;
+    private ICatalog catalog =  new RoomCatalog();
 
     @Before
+    //not working
     public void setUp() {catalog =  new RoomCatalog();
     }
 
@@ -22,10 +23,8 @@ class RoomCatalogTest extends HotelReservation {
     @Test
     void findByRoomNumber() {
         Room item1 = catalog.findByRoomNumber("101");
-
         assertEquals("101", item1.getRoomNumber());
     }
-
 
     @Test
     public void testFindByRoomNotExists() {
