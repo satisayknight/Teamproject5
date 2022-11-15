@@ -19,7 +19,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     Room roomReserved = new Room();
 
     @Override
-    public HotelReservation createNewHotelReservation() {
+    public HotelReservation createNewHotelReservation() throws IllegalArgumentException, InputMismatchException {
         try {
             //Increment counter by 1 for every hotel reservation made for unique reservationId
             counter = counter + 1;
@@ -51,45 +51,59 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             //Add this reservation to the list of reservations
             hotelReservationList.add(reservation);
         }
-        catch (IllegalArgumentException e)  {
-            throw new IllegalArgumentException("This is error handling message.");
+        catch (InputMismatchException e)  {
+            throw new InputMismatchException("This is an input mismatch handling message.");
         }
         return reservation;
     }
 
-    public Room createRoomForReservation() {
-        //Set roomType and set Room based on user inputs
-        System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
-        int roomType = stdInt.nextInt();
+    public Room createRoomForReservation() throws IllegalArgumentException, InputMismatchException {
 
-        if (roomType == 1) {
-            roomReserved = availableRooms.getNextRoomByType(RoomTypes.KING);
-            reservation.setRoom(roomReserved);
-        } else if (roomType == 2) {
-            roomReserved = availableRooms.getNextRoomByType(RoomTypes.QUEEN);
-            reservation.setRoom(roomReserved);
-        } else if (roomType == 3) {
-            roomReserved = availableRooms.getNextRoomByType(RoomTypes.SUITE);
-            reservation.setRoom(roomReserved);
-        } else {
-            System.out.println("Invalid. Please input: 1, 2, or 3.");
+        try {
+            //Set roomType and set Room based on user inputs
+            System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
+            int roomType = stdInt.nextInt();
+
+            if (roomType == 1) {
+                roomReserved = availableRooms.getNextRoomByType(RoomTypes.KING);
+                reservation.setRoom(roomReserved);
+            } else if (roomType == 2) {
+                roomReserved = availableRooms.getNextRoomByType(RoomTypes.QUEEN);
+                reservation.setRoom(roomReserved);
+            } else if (roomType == 3) {
+                roomReserved = availableRooms.getNextRoomByType(RoomTypes.SUITE);
+                reservation.setRoom(roomReserved);
+            } else {
+                System.out.println("Invalid. Please input: 1, 2, or 3.");
+            }
+        }
+        catch (InputMismatchException e) {
+            throw new InputMismatchException("This is an input mismatch handling message.");
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("This is an illegal argument handling message.");
         }
         return roomReserved;
     }
 
     public Guest createGuestForReservation() {
-        //Get Guest info
-        stdInt.nextLine();
-        System.out.println("What is your name?");
-        Guest guestNameToBook = guestForBooking;
-        guestNameToBook.setGuestName(stdInt.nextLine());
-        System.out.println("What is your email?");
-        Guest guestEmailToBook = guestForBooking;
-        guestEmailToBook.setGuestEmail(stdInt.nextLine());
-        System.out.println("What is your phone number?");
-        Guest guestPhoneNumberToBook = guestForBooking;
-        guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
-        reservation.setGuest(guestForBooking);
+        try {
+            //Get Guest info
+            stdInt.nextLine();
+            System.out.println("What is your name?");
+            Guest guestNameToBook = guestForBooking;
+            guestNameToBook.setGuestName(stdInt.nextLine());
+            System.out.println("What is your email?");
+            Guest guestEmailToBook = guestForBooking;
+            guestEmailToBook.setGuestEmail(stdInt.nextLine());
+            System.out.println("What is your phone number?");
+            Guest guestPhoneNumberToBook = guestForBooking;
+            guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
+            reservation.setGuest(guestForBooking);
+        }
+        catch (InputMismatchException e) {
+            throw new InputMismatchException("This is an input mismatch handling message.");
+        }
         return guestForBooking;
     }
 
