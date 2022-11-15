@@ -84,6 +84,24 @@ class RoomCatalogTest extends HotelReservation {
     }
 
     @Test
+    void findTakenRoomByRoomType_with_Taken_Room() {
+
+        Collection<Room> items = catalog.findTakenRoomByRoomType(RoomTypes.KING);
+        //List<Room> sortedItems = new ArrayList<>(items);
+        Collection<Room> ans = new ArrayList<>(items);
+        Collection<Room> roomOfInterestedRoomType = catalog.findByRoomType(RoomTypes.KING);
+        for (Room r : roomOfInterestedRoomType) {
+            if(r.getIsVacant()==true){
+                r.changeRoomToTaken();
+             ans.add(r);}
+       // if (r.getIsVacant()==false ) {
+       //     ans.add(r);
+       // }
+        }
+        assertEquals(20, ans.size());
+    }
+
+    @Test
     void totalNumberOfRooms() {
     }
 
