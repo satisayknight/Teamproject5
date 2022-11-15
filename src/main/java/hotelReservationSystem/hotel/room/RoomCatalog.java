@@ -5,6 +5,7 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RoomCatalog implements ICatalog{
 
@@ -84,7 +85,6 @@ public class RoomCatalog implements ICatalog{
 
     @Override
     public Room findByRoomNumber(String roomNumber) {
-
         for (Room r : catalogOfRooms) {
             if (r.getRoomNumber().equals(roomNumber)) {
                 return r;
