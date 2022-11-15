@@ -16,15 +16,52 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     Guest guestForBooking = new Guest();
     HotelReservation reservation = new HotelReservation();
     Price bookingTotalCost = new Price();
+    Room roomReserved = new Room();
 
+    @Override
     public HotelReservation createNewHotelReservation() {
-        //Increment counter by 1 for every hotel reservation made for unique reservationId
-        counter = counter + 1;
+        try {
+            //Increment counter by 1 for every hotel reservation made for unique reservationId
+            counter = counter + 1;
 
+            //Set Room object for this reservation
+            createRoomForReservation();
+
+            //Set Guest object for this reservation
+            createGuestForReservation();
+
+            //Days stayed
+            System.out.println("How many days would you like to book for?");
+            reservation.setDays(stdInt.nextInt());
+
+            //Set reservationId
+            reservation.setReservationId(counter);
+
+            //Display details
+            System.out.println("Your reservation is successful. The reservation information:");
+            System.out.println(reservation.toString());
+            //change the reserved room to taken:
+            roomReserved.changeRoomToTaken();
+            reservation.setRoom(roomReserved);
+
+            //Calculate totalCost for reservation
+            double totalCostOfThisReservation = bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays());
+            reservation.setTotalCost(totalCostOfThisReservation);
+
+            //Add this reservation to the list of reservations
+            hotelReservationList.add(reservation);
+        }
+        catch (IllegalArgumentException e)  {
+            throw new IllegalArgumentException("This is error handling message.");
+        }
+        return reservation;
+    }
+
+    public Room createRoomForReservation() {
         //Set roomType and set Room based on user inputs
         System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
         int roomType = stdInt.nextInt();
-        Room roomReserved = null;
+
         if (roomType == 1) {
             roomReserved = availableRooms.getNextRoomByType(RoomTypes.KING);
             reservation.setRoom(roomReserved);
@@ -37,7 +74,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         } else {
             System.out.println("Invalid. Please input: 1, 2, or 3.");
         }
+        return roomReserved;
+    }
 
+    public Guest createGuestForReservation() {
         //Get Guest info
         stdInt.nextLine();
         System.out.println("What is your name?");
@@ -50,27 +90,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         Guest guestPhoneNumberToBook = guestForBooking;
         guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
         reservation.setGuest(guestForBooking);
-
-        //Days stayed
-        System.out.println("How many days would you like to book for?");
-        reservation.setDays(stdInt.nextInt());
-
-        //Set reservationId
-        reservation.setReservationId(counter);
-
-        //Display details
-        System.out.println("Your reservation is successful. The reservation information:");
-        System.out.println(reservation.toString());
-        //change the reserved room to taken:
-        roomReserved.changeRoomToTaken();
-        reservation.setRoom(roomReserved);
-
-        //Calculate totalCost for reservation
-        reservation.setTotalCost(bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays()));
-
-        //Add this reservation to the list of reservations
-        hotelReservationList.add(reservation);
-        return reservation;
+        return guestForBooking;
     }
 
     @Override

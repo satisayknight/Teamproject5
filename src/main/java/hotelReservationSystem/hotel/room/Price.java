@@ -7,7 +7,7 @@ import static hotelReservationSystem.hotel.room.types.RoomTypes.*;
 public class Price {
     final static int KING_COST = 200;
     final static int QUEEN_COST = 150;
-    final static int SUITE_COST = 100;
+    final static int SUITE_COST = 500;
 
     public static double calculateCosts(RoomTypes roomTypes, int totalDaysStayed) {
         double stayingCost = 0D;
