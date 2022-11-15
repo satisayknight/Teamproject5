@@ -25,7 +25,6 @@ public class Room {
         return this.roomNumber;
     }
 
-
     public RoomTypes getRoomTypes() {
         return this.roomType;
     }
