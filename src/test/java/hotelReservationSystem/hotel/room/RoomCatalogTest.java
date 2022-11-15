@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -103,6 +104,9 @@ class RoomCatalogTest extends HotelReservation {
 
     @Test
     void totalNumberOfRooms() {
+        int items = catalog.totalNumberOfRooms();;
+        //System.out.println(items);
+        assertEquals(60,items);
     }
 
     @Test
