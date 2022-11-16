@@ -118,7 +118,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 if (reservation.getReservationId() == reservationId) {
                     guest = reservation.getGuest();
                     if (guest.isHasBalance() == true) {
-                        System.out.println("Please input your card information. [Correct Format example 1234-5678 9123 4567]");
+                        System.out.println("Please input your card information. [Correct Format example 1234567891234567]");
                         String cardInformation = stdInt.nextLine();
                         guest.setGuestCardNumber(cardInformation);
                         guest.setHasBalance(false);
