@@ -31,8 +31,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             createGuestForReservation();
 
             //Days stayed
-            System.out.println("How many days would you like to book for?");
-            reservation.setDays(stdInt.nextInt());
+            daysToBook();
 
             //Set reservationId
             reservation.setReservationId(counter);
@@ -54,6 +53,20 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             System.out.print("Wrong Input\n");
         }
         return reservation;
+    }
+
+    public void daysToBook() {
+        boolean isValidDays = false;
+        while (!isValidDays) {
+            System.out.println("How many days would you like to book for?");
+            int daysToBook = stdInt.nextInt();
+            if (daysToBook < 0 || daysToBook > 15) {
+                System.out.println("Please input a valid number of days to book.");
+            } else {
+                isValidDays = true;
+                reservation.setDays(daysToBook);
+            }
+        }
     }
 
     public Room createRoomForReservation() throws IllegalArgumentException, InputMismatchException {
