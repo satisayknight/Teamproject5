@@ -136,7 +136,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                         guest.setGuestCardNumber(cardInformation);
                         guest.setHasBalance(false);
                         reservation.setGuest(guest);
-                        System.out.println("Thank you for Your credit card Info./n The balance has been paid.");
+                        System.out.println("Thank you for Your credit card Info.\n The balance has been paid.");
                     } else {
                         System.out.println("Thank you. The reservation has already been paid.");
                     }
