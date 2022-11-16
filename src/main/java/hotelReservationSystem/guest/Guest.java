@@ -15,8 +15,6 @@ public class Guest {
     private String guestCardNumber;
     private boolean hasBalance = true;
 
-
-
     //MembershipTypes membershipType = null;
 
     public Guest() {

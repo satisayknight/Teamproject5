@@ -50,12 +50,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
             //Add this reservation to the list of reservations
             hotelReservationList.add(reservation);
-        }
-        catch (InputMismatchException e)  {
-            System.out.print("Wrong Input");
-            System.out.println("Press 'Enter' To Restart");
-            createNewHotelReservation();
-            // throw new InputMismatchException("This is an input mismatch handling message.");
+        } catch (InputMismatchException e) {
+            System.out.print("Wrong Input\n");
         }
         return reservation;
     }
@@ -80,17 +76,15 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 System.out.println("Invalid. Please input: 1, 2, or 3.");
                 createRoomForReservation();
             }
-        }
-        catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             throw new InputMismatchException("This is an input mismatch handling message.");
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("This is an illegal argument handling message.");
         }
         return roomReserved;
     }
 
-    public Guest createGuestForReservation() throws IllegalArgumentException,InputMismatchException{
+    public Guest createGuestForReservation() throws IllegalArgumentException, InputMismatchException {
         try {
             //Get Guest info
             stdInt.nextLine();
@@ -104,13 +98,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             Guest guestPhoneNumberToBook = guestForBooking;
             guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
             reservation.setGuest(guestForBooking);
-        }
-        catch (InputMismatchException |IllegalArgumentException e) {
-            System.out.print("Wrong Input");
+        } catch (InputMismatchException | IllegalArgumentException e) {
+            System.out.print("Wrong Input\n");
             System.out.println("Press 'Enter' To Restart");
             createGuestForReservation();
-            //throw new InputMismatchException("This is an input mismatch handling message.");
-
         }
         return guestForBooking;
     }
@@ -123,7 +114,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         Guest guest = null;
         //HotelReservation result = findById(reservationId);
         try {
-
             for (HotelReservation reservation : hotelReservationList) {
                 if (reservation.getReservationId() == reservationId) {
                     guest = reservation.getGuest();
@@ -132,17 +122,14 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                         String cardInformation = stdInt.nextLine();
                         guest.setGuestCardNumber(cardInformation);
                         guest.setHasBalance(false);
-                        //System.out.println(guest.toString());
                         reservation.setGuest(guest);
-                        //System.out.println(reservation.toString());
                     } else {
-                        System.out.println("your balance has been paid");
+                        System.out.println("Your balance has been paid.");
                     }
                 }
             }
 
         } catch (NullPointerException | InputMismatchException e) {
-
             System.out.println("The reservation ID is not valid.\nPlease try again.");
         }
         return guest;
@@ -152,7 +139,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     @Override
     public HotelReservation findById(int id) throws NullPointerException, InputMismatchException {
         HotelReservation result = null;
-
         try {
 
             for (HotelReservation reservation : hotelReservationList) {
@@ -163,12 +149,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             }
             System.out.println(result.toString());
             System.out.println("Total Cost: " + result.getTotalCost() + " dollars.");
-
         } catch (NullPointerException | InputMismatchException e) {
-
             System.out.println("The reservation ID is not valid.\nPlease try again.");
-
-
         }
         return result;
     }
