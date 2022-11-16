@@ -93,7 +93,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             else {
                 System.out.println("Invalid. Please input: 1, 2, or 3.");
                 //find a way to re-prompt this question instead of restarting the entire program
-                //createRoomForReservation();
+                createRoomForReservation();
             }
         } catch (InputMismatchException |IllegalArgumentException e) {
             System.out.println("Illegal Input Try Again");
