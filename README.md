@@ -29,4 +29,4 @@ Hotel reservation system
 
 ![image](images/UMLv1_3.jpg)
 
-![image](images/HotelReservationJSSUML.jpg)
+![image](images/HotelReservationJSSUML.png)
