@@ -9,7 +9,7 @@ import java.util.*;
 
 public class InMemoryReservationCatalog implements IReservationCatalog {
     Scanner stdInt = new Scanner(System.in);
-    final static int MIN_DAYS_FOR_BOOKING = 0;
+    final static int MIN_DAYS_FOR_BOOKING = 1;
     final static int MAX_DAYS_FOR_BOOKING = 15;
     private static int counter = 0;
     private static List<HotelReservation> hotelReservationList = new ArrayList<>();
