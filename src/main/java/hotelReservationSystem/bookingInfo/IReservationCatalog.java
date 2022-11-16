@@ -9,5 +9,5 @@ public interface IReservationCatalog {
     public int size();
     public Collection<HotelReservation> getAll();
     public HotelReservation createNewHotelReservation();
-    public Guest payForReservation();
+    public void payForReservation();
 }

@@ -124,7 +124,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     }
 
     @Override
-    public Guest payForReservation() throws IllegalArgumentException, InputMismatchException, NullPointerException {
+    public void payForReservation() throws IllegalArgumentException, InputMismatchException, NullPointerException {
         System.out.println("What is your reservation ID?");
         int reservationId = stdInt.nextInt();
         stdInt.nextLine();
@@ -155,7 +155,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         } catch (NullPointerException | InputMismatchException | IllegalArgumentException e) {
             System.out.println("The information is incorrect.\nPlease try again.");
         }
-        return guest;
+
     }
 
 
