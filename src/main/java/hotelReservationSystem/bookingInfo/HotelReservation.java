@@ -2,12 +2,8 @@ package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.room.Room;
-import hotelReservationSystem.hotel.room.Price;
-import hotelReservationSystem.hotel.room.types.RoomTypes;
+import hotelReservationSystem.hotel.room.BalanceCalculator;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.Scanner;
 
 public class HotelReservation {
     private int days;
@@ -32,13 +28,8 @@ public class HotelReservation {
         this.totalCost = calculateTotalCost(daysBooked);
     }
 
-    public void payForBooking(int id) {
-
-    }
-
     public double calculateTotalCost(int days){
-        double totalCost = Price.calculateCosts( room.getRoomTypes(), days);
-        System.out.println(totalCost + " dollars.");
+        double totalCost = BalanceCalculator.calculateCosts( room.getRoomTypes(), days);
         return totalCost;
     }
 

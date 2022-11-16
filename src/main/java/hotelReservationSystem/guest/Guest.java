@@ -1,6 +1,5 @@
 package hotelReservationSystem.guest;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class Guest {
@@ -13,9 +12,7 @@ public class Guest {
     private String guestEmail;
     private String guestPhoneNumber;
     private String guestCardNumber;
-    private boolean hasBalance = true;
-
-    //MembershipTypes membershipType = null;
+    private boolean hasBalanceDue = true;
 
     public Guest() {
     }
@@ -26,12 +23,8 @@ public class Guest {
         this.guestPhoneNumber = phone;
     }
 
-    public boolean isHasBalance() {
-        return hasBalance;
-    }
-
-    public void setHasBalance(boolean hasBalance) {
-        this.hasBalance = hasBalance;
+    public void setHasBalanceDue(boolean hasBalance) {
+        this.hasBalanceDue = hasBalance;
     }
 
     public void setGuestEmail(String email) {
@@ -45,7 +38,6 @@ public class Guest {
 
     public void setGuestPhoneNumber(String number) {
         Pattern pattern = Pattern.compile(PHONE_REGEX_PATTERN);
-
         if (!pattern.matcher(number).matches()) {
             throw new IllegalArgumentException("Invalid phone number");
         } else {
@@ -61,17 +53,13 @@ public class Guest {
         }
     }
 
-    public String getGuestCardNumber() {
-        return guestCardNumber;
-    }
-
     public void setGuestCardNumber(String guestCardNumber) {
         Pattern pattern = Pattern.compile(CREDITCARD_REGEX_PATTERN);
         if (!pattern.matcher(guestCardNumber).matches()) {
             throw new IllegalArgumentException("Invalid Card number");
         } else {
             this.guestCardNumber = guestCardNumber;
-            setHasBalance(false);
+            setHasBalanceDue(false);
         }
     }
 
@@ -85,6 +73,14 @@ public class Guest {
 
     public String getGuestPhoneNumber() {
         return guestPhoneNumber;
+    }
+
+    public boolean getHasBalanceDue() {
+        return hasBalanceDue;
+    }
+
+    public String getGuestCardNumber() {
+        return guestCardNumber;
     }
 
     @Override

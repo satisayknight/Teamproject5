@@ -1,14 +1,12 @@
 package hotelReservationSystem.hotel.room;
 
 import hotelReservationSystem.bookingInfo.HotelReservation;
-import hotelReservationSystem.bookingInfo.InMemoryReservationCatalog;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +18,7 @@ class RoomCatalogTest extends HotelReservation {
     @Before
     //not working
     public void setUp() {
-         ICatalog catalog = new RoomCatalog();
+        ICatalog catalog = new RoomCatalog();
     }
 
     @Test
@@ -69,13 +67,12 @@ class RoomCatalogTest extends HotelReservation {
 
     @Test
     void findAvailableRoomByRoomType_with_All_rooms_Taken() {
-
         Collection<Room> items = catalog.findTakenRoomByRoomType(RoomTypes.KING);
         Collection<Room> ans = new ArrayList<>(items);
         Collection<Room> roomOfInterestedRoomType = catalog.findByRoomType(RoomTypes.KING);
         for (Room r : roomOfInterestedRoomType) {
             if (r.getIsVacant() == true) {
-                r.changeRoomToTaken();
+                r.changeToNotVacant();
                 ans.add(r);
             }
         }
@@ -102,14 +99,13 @@ class RoomCatalogTest extends HotelReservation {
 
     @Test
     void findTakenRoomByRoomType_with_Taken_Room() {
-
         Collection<Room> items = catalog.findTakenRoomByRoomType(RoomTypes.KING);
         //List<Room> sortedItems = new ArrayList<>(items);
         Collection<Room> ans = new ArrayList<>(items);
         Collection<Room> roomOfInterestedRoomType = catalog.findByRoomType(RoomTypes.KING);
         for (Room r : roomOfInterestedRoomType) {
             if (r.getIsVacant() == true) {
-                r.changeRoomToTaken();
+                r.changeToNotVacant();
                 ans.add(r);
             }
         }

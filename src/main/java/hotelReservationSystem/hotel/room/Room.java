@@ -33,21 +33,21 @@ public class Room {
         return isVacant;
     }
 
-    public void changeRoomToTaken(){
+    public void changeToNotVacant(){
         if(isVacant==true){
             isVacant=false;
         }else{
-            System.out.println("The room is already taken.");
+            System.out.println("The room is not vacant.");
         }
-
     }
-    public void changeRoomToVacant(){
+
+
+    public void changeToVacant(){
         if(isVacant==false){
             isVacant=true;
         }else{
-            System.out.println("The room is already vacant.");
+            System.out.println("The room is vacant.");
         }
-
     }
 
 
@@ -56,6 +56,5 @@ public class Room {
         return
                 "Type: " + roomType +
                 "\nRoom Number: " + roomNumber;
-                //"\nis Vacant: " + isVacant;
     }
 }
