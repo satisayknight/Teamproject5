@@ -23,6 +23,8 @@ class RoomCatalogTest extends HotelReservation {
 
     @Test
     void getNextRoomByType() {
+        Room item1=catalog.getNextRoomByType(RoomTypes.KING);
+        assertEquals("101", item1.getRoomNumber());
     }
 
     @Test
