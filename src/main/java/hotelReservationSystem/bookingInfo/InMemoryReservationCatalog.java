@@ -129,9 +129,11 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         int reservationId = stdInt.nextInt();
         stdInt.nextLine();
         Guest guest = null;
+        boolean idFound = false;
         try {
             for (HotelReservation reservation : hotelReservationList) {
                 if (reservation.getReservationId() == reservationId) {
+                    idFound = true;
                     guest = reservation.getGuest();
                     if (guest.getHasBalanceDue() == true) {
                         System.out.println("Please input your card information. " +
@@ -147,6 +149,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                     }
                 }
             }
+            if(!idFound)
+                System.out.println("The information is incorrect.\nPlease try again.");
 
         } catch (NullPointerException | InputMismatchException | IllegalArgumentException e) {
             System.out.println("The information is incorrect.\nPlease try again.");
