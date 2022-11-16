@@ -20,7 +20,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     Room roomReserved = new Room();
 
     @Override
-    public HotelReservation createNewHotelReservation() throws IllegalArgumentException, InputMismatchException {
+    public void createNewHotelReservation() throws IllegalArgumentException, InputMismatchException {
         try {
             //Increment counter by 1 for every hotel reservation made for unique reservationId
             counter = counter + 1;
@@ -54,9 +54,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         } catch (InputMismatchException e) {
             System.out.print("Wrong Input. Please provide valid values from the menu selection.\n");
         }
-        return reservation;
+
     }
 
+    @Override
     public void daysToBook() {
         boolean isValidDays = false;
         while (!isValidDays) {
@@ -71,7 +72,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         }
     }
 
-    public Room createRoomForReservation() throws IllegalArgumentException, InputMismatchException {
+    @Override
+    public void createRoomForReservation() throws IllegalArgumentException, InputMismatchException {
 
         try {
             //Set roomType and set Room based on user inputs
@@ -98,10 +100,11 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             //createRoomForReservation();
             throw new InputMismatchException("This is an input mismatch handling message.");
         }
-        return roomReserved;
+
     }
 
-    public Guest createGuestForReservation() throws IllegalArgumentException, InputMismatchException {
+    @Override
+    public void createGuestForReservation() throws IllegalArgumentException, InputMismatchException {
         try {
             //Get Guest info from user inputs and set to Guest object
             stdInt.nextLine();
@@ -120,7 +123,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             System.out.println("Press 'Enter' To Restart");
             createGuestForReservation();
         }
-        return guestForBooking;
+
     }
 
     @Override
@@ -160,7 +163,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
 
     @Override
-    public HotelReservation findById(int id) throws NullPointerException, InputMismatchException {
+    public void findById(int id) throws NullPointerException, InputMismatchException {
         HotelReservation result = null;
         try {
             for (HotelReservation reservation : hotelReservationList) {
@@ -174,7 +177,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         } catch (NullPointerException | InputMismatchException e) {
             System.out.println("The reservation ID is not valid.\nPlease try again.");
         }
-        return result;
+
     }
 
 
