@@ -39,7 +39,7 @@ public class Guest {
     public void setGuestPhoneNumber(String number) {
         Pattern pattern = Pattern.compile(PHONE_REGEX_PATTERN);
         if (!pattern.matcher(number).matches()) {
-            throw new IllegalArgumentException("Invalid phone number");
+            throw new IllegalArgumentException("Invalid phone number. Please input 10 digits.");
         } else {
             this.guestPhoneNumber = number;
         }

@@ -110,7 +110,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             System.out.println("What is your email?");
             Guest guestEmailToBook = guestForBooking;
             guestEmailToBook.setGuestEmail(stdInt.nextLine());
-            System.out.println("What is your phone number?");
+            System.out.println("What is your phone number? [Correct Format example 2021234567] ");
             Guest guestPhoneNumberToBook = guestForBooking;
             guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
             reservation.setGuest(guestForBooking);
