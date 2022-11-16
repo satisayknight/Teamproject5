@@ -144,7 +144,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             }
 
         } catch (NullPointerException | InputMismatchException |IllegalArgumentException e) {
-            System.out.println("The reservation ID is not valid.\nPlease try again.");
+            System.out.println("The info is incorrect.\nPlease try again.");
         }
         return guest;
     }
