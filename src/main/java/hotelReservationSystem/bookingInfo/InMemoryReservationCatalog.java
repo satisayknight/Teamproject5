@@ -58,7 +58,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     public void daysToBook() {
         boolean isValidDays = false;
         while (!isValidDays) {
-            System.out.println("How many days would you like to book for?");
+            System.out.println("How many days would you like to book for? Must be between 1-15 days.");
             int daysToBook = stdInt.nextInt();
             if (daysToBook < 0 || daysToBook > 15) {
                 System.out.println("Please input a valid number of days to book.");
