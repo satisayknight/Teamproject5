@@ -4,7 +4,7 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 
 import static hotelReservationSystem.hotel.room.types.RoomTypes.*;
 
-public class Price {
+public class BalanceCalculator {
     final static int KING_COST = 200;
     final static int QUEEN_COST = 150;
     final static int SUITE_COST = 500;

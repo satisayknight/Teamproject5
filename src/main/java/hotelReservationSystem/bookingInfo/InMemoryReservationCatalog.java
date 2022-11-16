@@ -1,11 +1,10 @@
 package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
-import hotelReservationSystem.hotel.room.Price;
+import hotelReservationSystem.hotel.room.BalanceCalculator;
 import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.RoomCatalog;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
-
 import java.util.*;
 
 public class InMemoryReservationCatalog implements IReservationCatalog {
@@ -15,7 +14,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     private static RoomCatalog availableRooms = new RoomCatalog();
     Guest guestForBooking = new Guest();
     HotelReservation reservation = new HotelReservation();
-    Price bookingTotalCost = new Price();
+    BalanceCalculator bookingTotalCost = new BalanceCalculator();
     Room roomReserved = new Room();
 
     @Override
@@ -40,7 +39,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             System.out.println("Your reservation is successful. The reservation information:");
             System.out.println(reservation.toString());
             //change the reserved room to taken:
-            roomReserved.changeRoomToTaken();
+            roomReserved.changeToNotVacant();
             reservation.setRoom(roomReserved);
 
             //Calculate totalCost for reservation
@@ -120,21 +119,20 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     }
 
     @Override
-    public Guest payForReservation() throws IllegalArgumentException,InputMismatchException,NullPointerException {
+    public Guest payForReservation() throws IllegalArgumentException, InputMismatchException, NullPointerException {
         System.out.println("What is your reservation ID?");
         int reservationId = stdInt.nextInt();
         stdInt.nextLine();
         Guest guest = null;
-        //HotelReservation result = findById(reservationId);
         try {
             for (HotelReservation reservation : hotelReservationList) {
                 if (reservation.getReservationId() == reservationId) {
                     guest = reservation.getGuest();
-                    if (guest.isHasBalance() == true) {
+                    if (guest.getHasBalanceDue() == true) {
                         System.out.println("Please input your card information. [Correct Format example 1234567891234567]");
                         String cardInformation = stdInt.nextLine();
                         guest.setGuestCardNumber(cardInformation);
-                        guest.setHasBalance(false);
+                        guest.setHasBalanceDue(false);
                         reservation.setGuest(guest);
                         System.out.println("Thank you for Your credit card Info.\n The balance has been paid.");
                     } else {
@@ -143,8 +141,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 }
             }
 
-        } catch (NullPointerException | InputMismatchException |IllegalArgumentException e) {
-            System.out.println("The info is incorrect.\nPlease try again.");
+        } catch (NullPointerException | InputMismatchException | IllegalArgumentException e) {
+            System.out.println("The information is incorrect.\nPlease try again.");
         }
         return guest;
     }
@@ -154,7 +152,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     public HotelReservation findById(int id) throws NullPointerException, InputMismatchException {
         HotelReservation result = null;
         try {
-
             for (HotelReservation reservation : hotelReservationList) {
                 if (reservation.getReservationId() == id) {
                     result = reservation;
