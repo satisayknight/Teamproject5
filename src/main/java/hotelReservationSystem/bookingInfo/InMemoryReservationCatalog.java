@@ -75,6 +75,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 reservation.setRoom(roomReserved);
             } else {
                 System.out.println("Invalid. Please input: 1, 2, or 3.");
+                createRoomForReservation();
             }
         }
         catch (InputMismatchException e) {
@@ -86,7 +87,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         return roomReserved;
     }
 
-    public Guest createGuestForReservation() {
+    public Guest createGuestForReservation() throws IllegalArgumentException,InputMismatchException{
         try {
             //Get Guest info
             stdInt.nextLine();
@@ -101,8 +102,12 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
             reservation.setGuest(guestForBooking);
         }
-        catch (InputMismatchException e) {
-            throw new InputMismatchException("This is an input mismatch handling message.");
+        catch (InputMismatchException |IllegalArgumentException e) {
+            System.out.print("Wrong Input");
+            System.out.println("Press 'Enter' To Restart");
+            createGuestForReservation();
+            //throw new InputMismatchException("This is an input mismatch handling message.");
+
         }
         return guestForBooking;
     }
@@ -124,9 +129,9 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                         String cardInformation = stdInt.nextLine();
                         guest.setGuestCardNumber(cardInformation);
                         guest.setHasBalance(false);
-                        System.out.println(guest.toString());
+                        //System.out.println(guest.toString());
                         reservation.setGuest(guest);
-                        System.out.println(reservation.toString());
+                        //System.out.println(reservation.toString());
                     } else {
                         System.out.println("your balance has been paid");
                     }
@@ -137,18 +142,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
             System.out.println("The reservation ID is not valid.\nPlease try again.");
         }
-
-        /*
-        stdInt.nextLine();
-        if (guestForBooking.isHasBalance() == true) {
-            System.out.println("Please input your card information. [Correct Format example 1234-5678 9123 4567]");
-            String cardInformation = stdInt.nextLine();
-            guestForBooking.setGuestCardNumber(cardInformation);
-            guestForBooking.setHasBalance(false);
-        } else {
-            System.out.println("your balance has been paid");
-        }
-        //return guestForBooking;*/
         return guest;
     }
 
