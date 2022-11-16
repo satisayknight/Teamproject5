@@ -9,6 +9,8 @@ import java.util.*;
 
 public class InMemoryReservationCatalog implements IReservationCatalog {
     Scanner stdInt = new Scanner(System.in);
+    final static int MIN_DAYS_FOR_BOOKING = 0;
+    final static int MAX_DAYS_FOR_BOOKING = 15;
     private static int counter = 0;
     private static List<HotelReservation> hotelReservationList = new ArrayList<>();
     private static RoomCatalog availableRooms = new RoomCatalog();
@@ -50,7 +52,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             //Add this reservation to the list of reservations
             hotelReservationList.add(reservation);
         } catch (InputMismatchException e) {
-            System.out.print("Wrong Input\n");
+            System.out.print("Wrong Input. Please provide valid values from the menu selection.\n");
         }
         return reservation;
     }
@@ -60,7 +62,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         while (!isValidDays) {
             System.out.println("How many days would you like to book for? Must be between 1-15 days.");
             int daysToBook = stdInt.nextInt();
-            if (daysToBook < 0 || daysToBook > 15) {
+            if (daysToBook < MIN_DAYS_FOR_BOOKING || daysToBook > MAX_DAYS_FOR_BOOKING) {
                 System.out.println("Please input a valid number of days to book.");
             } else {
                 isValidDays = true;
@@ -87,6 +89,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 reservation.setRoom(roomReserved);
             } else {
                 System.out.println("Invalid. Please input: 1, 2, or 3.");
+                //find a way to re-prompt this question instead of restarting the entire program
                 createRoomForReservation();
             }
         } catch (InputMismatchException e) {
