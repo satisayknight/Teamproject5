@@ -150,7 +150,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 }
             }
             if(!idFound)
-                System.out.println("The information is incorrect.\nPlease try again.");
+                System.out.println("The Reservation ID is not found.\nPlease try again.");
 
         } catch (NullPointerException | InputMismatchException | IllegalArgumentException e) {
             System.out.println("The information is incorrect.\nPlease try again.");
