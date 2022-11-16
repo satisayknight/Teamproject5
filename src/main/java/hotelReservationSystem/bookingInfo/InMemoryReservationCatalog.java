@@ -99,7 +99,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
     public Guest createGuestForReservation() throws IllegalArgumentException, InputMismatchException {
         try {
-            //Get Guest info
+            //Get Guest info from user inputs and set to Guest object
             stdInt.nextLine();
             System.out.println("What is your name?");
             Guest guestNameToBook = guestForBooking;
@@ -136,7 +136,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                         guest.setGuestCardNumber(cardInformation);
                         guest.setHasBalance(false);
                         reservation.setGuest(guest);
-                        System.out.println("Thank you for Your credit card Info./n The balance has been paid.");
+                        System.out.println("Thank you for Your credit card Info.\n The balance has been paid.");
                     } else {
                         System.out.println("Thank you. The reservation has already been paid.");
                     }
