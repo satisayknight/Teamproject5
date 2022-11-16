@@ -52,7 +52,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             hotelReservationList.add(reservation);
         }
         catch (InputMismatchException e)  {
-            throw new InputMismatchException("This is an input mismatch handling message.");
+            System.out.print("Wrong Input");
+            System.out.println("Press 'Enter' To Restart");
+            createNewHotelReservation();
+            // throw new InputMismatchException("This is an input mismatch handling message.");
         }
         return reservation;
     }
