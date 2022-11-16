@@ -43,7 +43,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             reservation.setRoom(roomReserved);
 
             //Calculate totalCost for reservation
-            double totalCostOfThisReservation = bookingTotalCost.calculateCosts(reservation.getRoom().getRoomTypes(), reservation.getDays());
+            double totalCostOfThisReservation = bookingTotalCost.calculateCosts(
+                    reservation.getRoom().getRoomTypes(), reservation.getDays());
             reservation.setTotalCost(totalCostOfThisReservation);
 
             //Add this reservation to the list of reservations
@@ -129,12 +130,14 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 if (reservation.getReservationId() == reservationId) {
                     guest = reservation.getGuest();
                     if (guest.getHasBalanceDue() == true) {
-                        System.out.println("Please input your card information. [Correct Format example 1234567891234567]");
+                        System.out.println("Please input your card information. " +
+                                "[Correct Format example 1234123412341234]");
                         String cardInformation = stdInt.nextLine();
                         guest.setGuestCardNumber(cardInformation);
                         guest.setHasBalanceDue(false);
                         reservation.setGuest(guest);
-                        System.out.println("Thank you for Your credit card Info.\n The balance has been paid.");
+                        System.out.println("Thank you for Your credit card Information." +
+                                "\n The balance has been paid.");
                     } else {
                         System.out.println("Thank you. The reservation has already been paid.");
                     }
