@@ -55,12 +55,12 @@ public class Guest {
     }
 
     public void setGuestName(String guestName) {
-//        Pattern pattern = Pattern.compile(GUEST_NAME_REGEX_PATTERN);
-//        if (!pattern.matcher(guestName).matches()) {
-//            throw new IllegalArgumentException("Invalid name");
-//        } else {
+        Pattern pattern = Pattern.compile(GUEST_NAME_REGEX_PATTERN);
+        if (!pattern.matcher(guestName).matches()) {
+            throw new IllegalArgumentException("Invalid name");
+        } else {
             this.guestName = guestName;
-//        }
+        }
     }
 
     public void setGuestCardNumber(String guestCardNumber) {

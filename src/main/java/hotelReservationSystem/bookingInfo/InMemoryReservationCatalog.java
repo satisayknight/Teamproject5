@@ -157,7 +157,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
             reservation.setGuest(guestForBooking);
         } catch (InputMismatchException | IllegalArgumentException e) {
-            System.out.print("The system cannot take number for name. Please input a valid name.\n");
+            System.out.print("The system can only take letter for name. Please input a valid name.\n");
             System.out.println("Press 'Enter' To Restart");
             createGuestForReservation();
         }
@@ -177,6 +177,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                     idFound = true;
                     guest = reservation.getGuest();
                     if (guest.getHasBalanceDue() == true) {
+                        System.out.println("The cost of your reservation is $"+reservation.getTotalCost()+".");
                         System.out.println("Please input your card information. " +
                                 "[Correct Format example 1234123412341234]");
                         String cardInformation = stdInt.nextLine();
