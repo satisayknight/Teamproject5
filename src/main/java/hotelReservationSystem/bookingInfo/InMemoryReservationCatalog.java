@@ -74,7 +74,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
             while(!isAfterToday){
                 System.out.println("What is the start date for your room reservation? " +
-                        "[Correct Format example 2022-10-10]");
+                        "[Correct Format example YYYY-MM-DD]");
                 LocalDate startDate=LocalDate.parse(stdInt.nextLine());
                 if(startDate.isBefore(today)){
 
@@ -85,9 +85,8 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 }
             }
 
-
         }catch (DateTimeParseException e){
-            System.out.println("Please input a correct date [Correct Format example 2022-10-10]");
+            System.out.println("Please input a correct date [Correct Format example YYYY-MM-DD]");
             startDateToBook();
         }
 
@@ -158,7 +157,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
             reservation.setGuest(guestForBooking);
         } catch (InputMismatchException | IllegalArgumentException e) {
-            System.out.print("Wrong Input\n");
+            System.out.print("The system cannot take number for name. Please input a valid name.\n");
             System.out.println("Press 'Enter' To Restart");
             createGuestForReservation();
         }
