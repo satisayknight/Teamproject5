@@ -8,7 +8,7 @@ public class Guest {
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
     private static final String PHONE_REGEX_PATTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
     private static final String CREDITCARD_REGEX_PATTERN = "([0-9]{4})([0-9]{4})([0-9]{4})([0-9]{4})$";
-    private static final String GUEST_NAME_REGEX_PATTERN ="^[a-zA-Z\\\\s]+";
+    private static final String GUEST_NAME_REGEX_PATTERN ="^[a-zA-Z \\-\\.\\']*$";
 
 
     private String guestName;
