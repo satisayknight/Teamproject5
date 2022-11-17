@@ -135,8 +135,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             }
         } catch (InputMismatchException |IllegalArgumentException e) {
             System.out.println("Illegal Input - Please try Again");
-            //createRoomForReservation();
-            throw new InputMismatchException("This is an input mismatch handling message.");
         }
 
     }
