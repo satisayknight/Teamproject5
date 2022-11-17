@@ -22,6 +22,12 @@ public class Guest {
         this.guestEmail = email;
         this.guestPhoneNumber = phone;
     }
+    public Guest(String name, String email, String phone,boolean hasBalanceDue) {
+        this.guestName = name;
+        this.guestEmail = email;
+        this.guestPhoneNumber = phone;
+        this.getHasBalanceDue();
+    }
 
     public void setHasBalanceDue(boolean hasBalance) {
         this.hasBalanceDue = hasBalance;
