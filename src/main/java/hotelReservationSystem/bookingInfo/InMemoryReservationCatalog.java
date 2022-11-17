@@ -58,8 +58,9 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
             //Add this reservation to the list of reservations
             hotelReservationList.add(reservation);
-        } catch (InputMismatchException e) {
-            System.out.print("Wrong Input. Please provide valid value from the menu selection.\n");
+        } catch (InputMismatchException | IllegalArgumentException e) {
+            System.out.print("Wrong Input. Please provide valid value and try again.\n");
+
         }
 
     }
@@ -111,11 +112,13 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     }
 
     @Override
-    public void createRoomForReservation() throws IllegalArgumentException, InputMismatchException {
+    public void createRoomForReservation() throws IllegalArgumentException,InputMismatchException{
 
         try {
             //Set roomType and set Room based on user inputs
             System.out.println("Which room would you like to book? 1:King  2:Queen  3:Suite");
+
+
             int roomType = stdInt.nextInt();
 
             if (roomType == 1) {
@@ -131,11 +134,12 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 System.out.println("Invalid. Please input 1, 2, or 3.");
                 createRoomForReservation();
             }
-        } catch (InputMismatchException | IllegalArgumentException var2) {
+        } catch (InputMismatchException | IllegalArgumentException e) {
             throw new InputMismatchException("This is an input mismatch handling message.");
 
         }
     }
+
 
     @Override
     public void createGuestForReservation() throws IllegalArgumentException, InputMismatchException {
@@ -153,7 +157,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             guestPhoneNumberToBook.setGuestPhoneNumber(stdInt.nextLine());
             reservation.setGuest(guestForBooking);
         } catch (InputMismatchException | IllegalArgumentException e) {
-            System.out.print("The system can only take letter for name. Please input a valid name.\n");
+            System.out.print("The input is illegal. Please try again.\n");
             System.out.println("Press 'Enter' To Restart");
             createGuestForReservation();
         }
