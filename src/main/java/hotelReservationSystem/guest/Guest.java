@@ -7,6 +7,8 @@ public class Guest {
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
     private static final String PHONE_REGEX_PATTERN = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$";
     private static final String CREDITCARD_REGEX_PATTERN = "([0-9]{4})([0-9]{4})([0-9]{4})([0-9]{4})$";
+    private static final String GUEST_NAME_REGEX_PATTERN ="(?i)(^[a-z])((?![ .,'-]){0,24}$";
+
 
     private String guestName;
     private String guestEmail;
@@ -52,8 +54,9 @@ public class Guest {
     }
 
     public void setGuestName(String guestName) {
-        if (guestName.length() == 0) {
-            throw new IllegalArgumentException("Invalid name length");
+        Pattern pattern = Pattern.compile(GUEST_NAME_REGEX_PATTERN);
+        if (!pattern.matcher(guestName).matches()) {
+            throw new IllegalArgumentException("Invalid name");
         } else {
             this.guestName = guestName;
         }
