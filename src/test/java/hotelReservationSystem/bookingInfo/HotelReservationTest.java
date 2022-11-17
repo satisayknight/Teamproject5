@@ -2,6 +2,7 @@ package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.Hotel;
+import hotelReservationSystem.hotel.room.BalanceCalculator;
 import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
 import org.junit.Before;
@@ -15,12 +16,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HotelReservationTest extends HotelReservation {
-
     private Collection<HotelReservation> allHotelReservationItems;
 
     @Before
-    void setUp() {
-        
+    public void setUp() throws Exception {
         HotelReservation testReservation1 = new HotelReservation(1,
                 new Guest("Joe", "joe@gmail.com", "4842138433"),
                 new Room("101", RoomTypes.KING, false),
@@ -40,9 +39,6 @@ class HotelReservationTest extends HotelReservation {
 
     @Test
     void testGetDays() {
-        //Arrange
-        //Act
-        //Assert
         HotelReservation testReservation1 = new HotelReservation(1,
                 new Guest("Joe", "joe@gmail.com", "4842138433"),
                 new Room("101", RoomTypes.KING, false),
@@ -52,9 +48,6 @@ class HotelReservationTest extends HotelReservation {
 
     @Test
     void testSetDays() {
-        //Arrange
-        //Act
-        //Assert
         HotelReservation testReservation2 = new HotelReservation(2,
                 new Guest("Chris", "chris@gmail.com", "4842138433"),
                 new Room("202", RoomTypes.QUEEN, false),
@@ -65,70 +58,71 @@ class HotelReservationTest extends HotelReservation {
 
     @Test
     void testGetGuest() {
-        //Arrange
-        //Act
-        //Assert
         HotelReservation testReservation3 = new HotelReservation(3,
                 new Guest("John", "john@gmail.com", "4842138433"),
                 new Room("303", RoomTypes.SUITE, false),
                 10);
-        //currently not passing
         assertEquals(new Guest("John", "john@gmail.com", "4842138433"), testReservation3.getGuest());
     }
 
     @Test
     void testSetGuest() {
-        //Arrange
-        //Act
-        //Assert
-        HotelReservation testReservation3 = new HotelReservation(3,
-                new Guest("John", "john@gmail.com", "4842138433"),
-                new Room("303", RoomTypes.SUITE, false),
-                10);
-        //debug
-//        assertEquals(new Guest("Joseph", "john@gmail.com", "4842138433"),
-//                testReservation3.setGuest("Joseph", "john@gmail.com", "4842138433"));
+        Guest testGuest = new Guest("John", "john@gmail.com", "4842138433");
+        HotelReservation testReservation1 = new HotelReservation ();
+        testReservation1.setGuest(testGuest);
+        assertEquals(new Guest("John", "john@gmail.com", "4842138433"),
+                testGuest);
     }
 
     @Test
     void testSetRoom() {
-        //Arrange
-        //Act
-        //Assert
+        Room roomTest = new Room("303", RoomTypes.SUITE, false);
+        HotelReservation testReservation1 = new HotelReservation ();
+        testReservation1.setRoom(roomTest);
+assertEquals(new Room("303", RoomTypes.SUITE, false)
+        ,testReservation1.getRoom());
     }
 
     @Test
     void testGetReservationId() {
-        //Arrange
-        //Act
-        //Assert
+        HotelReservation testReservation3 = new HotelReservation(3,
+                new Guest("John", "john@gmail.com", "4842138433"),
+                new Room("303", RoomTypes.SUITE, false),
+                10);
+        assertEquals(3, testReservation3.getReservationId());
     }
 
     @Test
     void testSetReservationId() {
-        //Arrange
-        //Act
-        //Assert
-    }
-
-    @Test
-    void testGetRoom() {
-        //Arrange
-        //Act
-        //Assert
+        HotelReservation testReservation3 = new HotelReservation(3,
+                new Guest("John", "john@gmail.com", "4842138433"),
+                new Room("303", RoomTypes.SUITE, false),
+                10);
+        testReservation3.setReservationId(5);
+        assertEquals(5, testReservation3.getReservationId());
     }
 
     @Test
     void testGetTotalCost() {
-        //Arrange
-        //Act
-        //Assert
+        BalanceCalculator testPrice = new BalanceCalculator();
+        HotelReservation testReservation3 = new HotelReservation(3,
+                new Guest("John", "john@gmail.com", "4842138433"),
+                new Room("303", RoomTypes.SUITE, false),
+                10);
+        double testTotalCost = testPrice.calculateCosts(testReservation3.getRoom().getRoomTypes(),
+                testReservation3.getDays());
+        testReservation3.setTotalCost(testTotalCost);
+        assertEquals(5000, testReservation3.getTotalCost());
     }
 
     @Test
     void testSetTotalCost() {
-        //Arrange
-        //Act
-        //Assert
+        BalanceCalculator testPrice = new BalanceCalculator();
+        HotelReservation testReservation3 = new HotelReservation(3,
+                new Guest("John", "john@gmail.com", "4842138433"),
+                new Room("303", RoomTypes.SUITE, false),
+                10);
+        testReservation3.setTotalCost(5000);
+        assertEquals(5000, testReservation3.getTotalCost());
     }
 }

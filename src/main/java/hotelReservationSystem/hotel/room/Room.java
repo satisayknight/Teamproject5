@@ -1,6 +1,9 @@
 package hotelReservationSystem.hotel.room;
 
+import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
+
+import java.util.Objects;
 
 
 public class Room {
@@ -50,6 +53,24 @@ public class Room {
         }
     }
 
+
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = false;
+        if (obj instanceof Room) {
+            Room other = (Room) obj;
+            result = Objects.equals(this.getRoomNumber(),   other.getRoomNumber()) &&
+                    Objects.equals(this.getRoomTypes(),  other.getRoomTypes()) &&
+                    Objects.equals(this.getIsVacant(), other.getIsVacant());
+        }
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getRoomNumber(), getRoomTypes(), getIsVacant());
+    }
 
     @Override
     public String toString() {

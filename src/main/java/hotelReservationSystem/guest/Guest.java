@@ -1,5 +1,6 @@
 package hotelReservationSystem.guest;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class Guest {
@@ -90,6 +91,23 @@ public class Guest {
 
     public String getGuestCardNumber() {
         return guestCardNumber;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = false;
+        if (obj instanceof Guest) {
+            Guest other = (Guest) obj;
+            result = Objects.equals(this.getGuestName(),   other.getGuestName()) &&
+                    Objects.equals(this.getGuestEmail(),  other.getGuestEmail()) &&
+                    Objects.equals(this.getGuestPhoneNumber(), other.getGuestPhoneNumber());
+        }
+        return result;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getGuestName(), getGuestEmail(), getGuestPhoneNumber());
     }
 
     @Override

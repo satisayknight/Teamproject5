@@ -99,6 +99,18 @@ public class HotelReservation {
     }
 
 
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = days;
+        result = 31 * result + guest.hashCode();
+        result = 31 * result + room.hashCode();
+        result = 31 * result + reservationId;
+        temp = Double.doubleToLongBits(totalCost);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 
     @Override
     public String toString() {
