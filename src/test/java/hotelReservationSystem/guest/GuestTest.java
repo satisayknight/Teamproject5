@@ -17,9 +17,6 @@ class GuestTest extends HotelReservation {
 
         guest.setHasBalanceDue(false);
         assertEquals(false, guest.getHasBalanceDue());
-
-
-
     }
 
     @Test
@@ -57,8 +54,14 @@ class GuestTest extends HotelReservation {
         Guest guest = new Guest();
         guest.setGuestPhoneNumber("2068225294");
         assertEquals("2068225294",guest.getGuestPhoneNumber());
-
     }
+    @Test
+    void testSetGuestPhoneNumber_NegativeTesting() {
+        Guest guest = new Guest();
+        guest.setGuestPhoneNumber("2068225294");
+        assertEquals("2068225294",guest.getGuestPhoneNumber());
+    }
+
 
     @Test
     void testSetGuestName_PositiveTesting() {
