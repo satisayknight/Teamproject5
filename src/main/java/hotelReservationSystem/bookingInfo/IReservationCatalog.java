@@ -10,6 +10,7 @@ public interface IReservationCatalog {
     public Collection<HotelReservation> getAll();
     public void createNewHotelReservation();
     public void payForReservation();
+    public void startDateToBook();
     public void daysToBook();
     public void createRoomForReservation();
     public void createGuestForReservation();

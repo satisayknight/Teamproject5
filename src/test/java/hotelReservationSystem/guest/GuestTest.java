@@ -10,7 +10,7 @@ class GuestTest extends HotelReservation {
 
     @Before
     void setUp(){
-        Guest guest= new Guest("sar","sa@gmail.com","2099999999",true);
+        //Guest guest= new Guest("sar","sa@gmail.com","2099999999",true);
         //guest.setHasBalanceDue(false);
 
     }
