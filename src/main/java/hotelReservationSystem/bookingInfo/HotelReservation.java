@@ -4,8 +4,12 @@ import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.BalanceCalculator;
 
+import java.time.LocalDate;
+
 
 public class HotelReservation {
+    private LocalDate startDate;
+    private LocalDate endDate;
     private int days;
     private Guest guest;
     private Room room;
@@ -36,6 +40,23 @@ public class HotelReservation {
 //        double totalCost = BalanceCalculator.calculateCosts( room.getRoomTypes(), days);
 //        return totalCost;
 //    }
+
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(int days) {
+        this.endDate = startDate.plusDays(days);
+    }
 
     public int getDays() {
         return days;
@@ -84,7 +105,8 @@ public class HotelReservation {
         return "Guest " + getGuest() +
                 "\nRoom " + getRoom() +
                 "\nReservation ID: " + getReservationId() +
-                "\nDays: " + getDays() +
+                "\nStart Date: " + getStartDate() +
+                "\nEnd Date: " + getEndDate() +
                 "\nTotal Cost: " + getTotalCost();
     }
 }

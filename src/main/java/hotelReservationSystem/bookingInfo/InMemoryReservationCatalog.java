@@ -5,6 +5,9 @@ import hotelReservationSystem.hotel.room.BalanceCalculator;
 import hotelReservationSystem.hotel.room.Room;
 import hotelReservationSystem.hotel.room.RoomCatalog;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class InMemoryReservationCatalog implements IReservationCatalog {
@@ -30,6 +33,9 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
             //Set Guest object for this reservation
             createGuestForReservation();
+
+            //Set Start Date for this reservation
+            startDateToBook();
 
             //Days stayed
             daysToBook();
@@ -59,6 +65,20 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     }
 
     @Override
+    public void startDateToBook(){
+        try{
+            System.out.println("What is the start date for your room reservation? [Correct Format example 2022-10-10]");
+            LocalDate startDate=LocalDate.parse(stdInt.nextLine());
+            reservation.setStartDate(startDate);
+        }catch (DateTimeParseException e){
+            System.out.println("Please input a correct date [Correct Format example 2022-10-10]");
+            startDateToBook();
+        }
+
+
+    }
+
+    @Override
     public void daysToBook() {
         boolean isValidDays = false;
         while (!isValidDays) {
@@ -69,8 +89,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             } else {
                 isValidDays = true;
                 reservation.setDays(daysToBook);
+                reservation.setEndDate(daysToBook);
             }
         }
+
     }
 
     @Override
