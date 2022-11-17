@@ -133,8 +133,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 //find a way to re-prompt this question instead of restarting the entire program
                 createRoomForReservation();
             }
-        } catch (InputMismatchException |IllegalArgumentException e) {
+        } catch (InputMismatchException |IllegalArgumentException var2) {
             System.out.println("Illegal Input - Please try Again");
+            throw new InputMismatchException("This is an input mismatch handling message.");
+
         }
 
     }
