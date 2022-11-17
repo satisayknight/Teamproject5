@@ -92,13 +92,16 @@ class GuestTest extends HotelReservation {
 
         guest.setGuestName("Sar Singh");
         assertEquals("Sar Singh", guest.getGuestName());
+
+        guest.setGuestName("Sar Middle Singh");
+        assertEquals("Sar Middle Singh", guest.getGuestName());
     }
 
     @Test
     void testSetGuestName_NegativeTesting() throws IllegalArgumentException {
         Guest guest = new Guest();
         try {
-            guest.setGuestName("");
+            guest.setGuestName(" ");
         } catch (IllegalArgumentException e) {
             assertEquals("Invalid name", e.getMessage());
         }
