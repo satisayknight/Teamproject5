@@ -65,27 +65,27 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     }
 
     @Override
-    public void startDateToBook(){
-        try{
+    public void startDateToBook() {
+        try {
 
 
-            LocalDate today=LocalDate.now();
+            LocalDate today = LocalDate.now();
             boolean isAfterToday = false;
 
-            while(!isAfterToday){
+            while (!isAfterToday) {
                 System.out.println("What is the start date for your room reservation? " +
                         "[Correct Format example YYYY-MM-DD]");
-                LocalDate startDate=LocalDate.parse(stdInt.nextLine());
-                if(startDate.isBefore(today)){
+                LocalDate startDate = LocalDate.parse(stdInt.nextLine());
+                if (startDate.isBefore(today)) {
 
                     System.out.println("Please select a date that is not before today.");
-                }else{
-                    isAfterToday=true;
+                } else {
+                    isAfterToday = true;
                     reservation.setStartDate(startDate);
                 }
             }
 
-        }catch (DateTimeParseException e){
+        } catch (DateTimeParseException e) {
             System.out.println("Please input a correct date [Correct Format example YYYY-MM-DD]");
             startDateToBook();
         }
@@ -112,7 +112,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
     @Override
     public void createRoomForReservation() throws IllegalArgumentException, InputMismatchException {
-
         try {
             //Set roomType and set Room based on user inputs
             System.out.println("Which room would you like to book? 1:King  2:Queen  3:Suite");
@@ -127,18 +126,14 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             } else if (roomType == 3) {
                 roomReserved = availableRooms.getNextRoomByType(RoomTypes.SUITE);
                 reservation.setRoom(roomReserved);
-            }
-            else {
+            } else {
                 System.out.println("Invalid. Please input 1, 2, or 3.");
-                //find a way to re-prompt this question instead of restarting the entire program
                 createRoomForReservation();
             }
-        } catch (InputMismatchException |IllegalArgumentException var2) {
-            System.out.println("Illegal Input - Please try Again");
+        } catch (InputMismatchException | IllegalArgumentException var2) {
             throw new InputMismatchException("This is an input mismatch handling message.");
 
         }
-
     }
 
     @Override
@@ -177,7 +172,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                     idFound = true;
                     guest = reservation.getGuest();
                     if (guest.getHasBalanceDue() == true) {
-                        System.out.println("The cost of your reservation is $"+reservation.getTotalCost()+".");
+                        System.out.println("The cost of your reservation is $" + reservation.getTotalCost() + ".");
                         System.out.println("Please input your card information. " +
                                 "[Correct Format example 1234123412341234]");
                         String cardInformation = stdInt.nextLine();
@@ -185,13 +180,13 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                         guest.setHasBalanceDue(false);
                         reservation.setGuest(guest);
                         System.out.println("Thank you for Your credit card Information." +
-                                "\n The balance $" +reservation.getTotalCost()+" has been paid.");
+                                "\n The balance $" + reservation.getTotalCost() + " has been paid.");
                     } else {
                         System.out.println("Thank you. The reservation has already been paid.");
                     }
                 }
             }
-            if(!idFound)
+            if (!idFound)
                 System.out.println("The Reservation ID is not found.\nPlease try again.");
 
         } catch (NullPointerException | InputMismatchException | IllegalArgumentException e) {
