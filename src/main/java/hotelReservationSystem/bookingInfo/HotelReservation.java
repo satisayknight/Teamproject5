@@ -36,10 +36,6 @@ public class HotelReservation {
         this.days = daysBooked;
     }
 
-//    public double calculateTotalCost(int days){
-//        double totalCost = BalanceCalculator.calculateCosts( room.getRoomTypes(), days);
-//        return totalCost;
-//    }
 
 
     public LocalDate getStartDate() {
