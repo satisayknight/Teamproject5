@@ -67,12 +67,25 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     @Override
     public void startDateToBook(){
         try{
-            System.out.println("What is the start date for your room reservation? [Correct Format example 2022-10-10]");
 
 
+            LocalDate today=LocalDate.now();
+            boolean isAfterToday = false;
 
-            LocalDate startDate=LocalDate.parse(stdInt.nextLine());
-            reservation.setStartDate(startDate);
+            while(!isAfterToday){
+                System.out.println("What is the start date for your room reservation? " +
+                        "[Correct Format example 2022-10-10]");
+                LocalDate startDate=LocalDate.parse(stdInt.nextLine());
+                if(startDate.isBefore(today)){
+
+                    System.out.println("Please select a date that is not before today.");
+                }else{
+                    isAfterToday=true;
+                    reservation.setStartDate(startDate);
+                }
+            }
+
+
         }catch (DateTimeParseException e){
             System.out.println("Please input a correct date [Correct Format example 2022-10-10]");
             startDateToBook();
