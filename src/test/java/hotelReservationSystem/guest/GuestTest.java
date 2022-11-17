@@ -8,54 +8,87 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GuestTest extends HotelReservation {
 
-    @Before
-    void setUp(){
-        //Guest guest= new Guest("sar","sa@gmail.com","2099999999",true);
-        //guest.setHasBalanceDue(false);
-
-    }
 
     @Test
-    void setHasBalanceDue() {
+    void testSetHasBalanceDu_PositiveTesting() {
         Guest guest = new Guest();
+       //Hasbalance should be true when guest is created
+        assertEquals(true,guest.getHasBalanceDue());
+
         guest.setHasBalanceDue(false);
         assertEquals(false, guest.getHasBalanceDue());
 
+
+
     }
 
     @Test
-    void setGuestEmail() {
+    void testSetGuestEmail_PositiveTesting() {
+        Guest guest = new Guest();
+        guest.setGuestEmail("sa@mail.com");
+        assertEquals("sa@mail.com",guest.getGuestEmail());
     }
 
     @Test
-    void setGuestPhoneNumber() {
+    void testSetGuestEmail_NegativeTesting() throws IllegalArgumentException {
+        Guest guest = new Guest();
+        try{
+        guest.setGuestEmail("samail.com");
+        }
+        catch(IllegalArgumentException e){
+           assertEquals("Invalid email",e.getMessage());
+        }
+        try{
+            guest.setGuestEmail("2");
+        }
+        catch(IllegalArgumentException e){
+            assertEquals("Invalid email",e.getMessage());
+        }
+        try{
+            guest.setGuestEmail("32e5731e5");
+        }
+        catch(IllegalArgumentException e){
+            assertEquals("Invalid email",e.getMessage());
+        }
     }
 
     @Test
-    void setGuestName() {
+    void testSetGuestPhoneNumber_PositiveTesting() {
+        Guest guest = new Guest();
+        guest.setGuestPhoneNumber("2068225294");
+        assertEquals("2068225294",guest.getGuestPhoneNumber());
+
     }
 
     @Test
-    void setGuestCardNumber() {
+    void testSetGuestName_PositiveTesting() {
+        Guest guest = new Guest();
+        guest.setGuestName("Sar");
+        assertEquals("Sar",guest.getGuestName());
+
     }
 
     @Test
-    void getGuestName() {
+    void testSetGuestCardNumber_PositiveTesting() {
+        Guest guest = new Guest();
+        guest.setGuestCardNumber("1234567890123456");
+        assertEquals("1234567890123456",guest.getGuestCardNumber());
+    }
+    @Test
+    void testSetGuestCardNumber_NegativeTesting() throws IllegalArgumentException{
+        Guest guest = new Guest();
+        try{
+        guest.setGuestCardNumber("2");}
+        catch (IllegalArgumentException e){
+            assertEquals("Invalid Card number",e.getMessage());
+        }
+        try{
+            guest.setGuestCardNumber("typing String");}
+        catch (IllegalArgumentException e){
+            assertEquals("Invalid Card number",e.getMessage());
+        }
+
     }
 
-    @Test
-    void getGuestEmail() {
-    }
 
-    @Test
-    void getGuestPhoneNumber() {
-    }
-
-    @Test
-    void getHasBalanceDue() {
-    }
-
-    @Test
-    void getGuestCardNumber() {
-    }
 }

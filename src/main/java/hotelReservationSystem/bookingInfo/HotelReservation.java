@@ -23,6 +23,11 @@ public class HotelReservation {
     public HotelReservation(int id) {
         this.reservationId = id;
     }
+    public HotelReservation(int reservationId, Guest guest, Room room) {
+        this(reservationId);
+        this.guest = guest;
+        this.room = room;
+    }
 
     public HotelReservation(int reservationId, Guest guest, Room room, int daysBooked) {
         this(reservationId);
