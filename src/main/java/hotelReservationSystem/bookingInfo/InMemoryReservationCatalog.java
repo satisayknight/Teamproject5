@@ -37,17 +37,18 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             //Set reservationId
             reservation.setReservationId(counter);
 
-            //Display details
-            System.out.println("Your reservation is successful. The reservation information:");
-            System.out.println(reservation.toString());
-            //change the reserved room to taken:
-            roomReserved.changeToNotVacant();
-            reservation.setRoom(roomReserved);
-
             //Calculate totalCost for reservation
             double totalCostOfThisReservation = bookingTotalCost.calculateCosts(
                     reservation.getRoom().getRoomTypes(), reservation.getDays());
             reservation.setTotalCost(totalCostOfThisReservation);
+
+            //Display details
+            System.out.println("Your reservation is successful. The reservation information:");
+            System.out.println(reservation.toString());
+
+            //change the reserved room to taken:
+            roomReserved.changeToNotVacant();
+            reservation.setRoom(roomReserved);
 
             //Add this reservation to the list of reservations
             hotelReservationList.add(reservation);

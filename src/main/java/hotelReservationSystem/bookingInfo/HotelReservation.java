@@ -25,13 +25,12 @@ public class HotelReservation {
         this.guest = guest;
         this.room = room;
         this.days = daysBooked;
-        this.totalCost = calculateTotalCost(daysBooked);
     }
 
-    public double calculateTotalCost(int days){
-        double totalCost = BalanceCalculator.calculateCosts( room.getRoomTypes(), days);
-        return totalCost;
-    }
+//    public double calculateTotalCost(int days){
+//        double totalCost = BalanceCalculator.calculateCosts( room.getRoomTypes(), days);
+//        return totalCost;
+//    }
 
     public int getDays() {
         return days;
@@ -78,6 +77,7 @@ public class HotelReservation {
         return "Guest " + getGuest() +
                 "\nRoom " + getRoom() +
                 "\nReservation ID: " + getReservationId() +
-                "\nDays: " + getDays();
+                "\nDays: " + getDays() +
+                "\nTotal Cost: " + getTotalCost();
     }
 }
