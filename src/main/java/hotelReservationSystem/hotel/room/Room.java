@@ -37,7 +37,7 @@ public class Room {
         if(isVacant==true){
             isVacant=false;
         }else{
-            System.out.println("The room is not vacant.");
+            System.out.println("The update is not successful because the room is not vacant.");
         }
     }
 
@@ -46,7 +46,7 @@ public class Room {
         if(isVacant==false){
             isVacant=true;
         }else{
-            System.out.println("The room is vacant.");
+            System.out.println("The update is not successful because the room is vacant.");
         }
     }
 
