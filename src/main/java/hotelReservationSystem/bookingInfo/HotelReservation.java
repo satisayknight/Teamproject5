@@ -107,6 +107,6 @@ public class HotelReservation {
                 "\nReservation ID: " + getReservationId() +
                 "\nStart Date: " + getStartDate() +
                 "\nEnd Date: " + getEndDate() +
-                "\nTotal Cost: " + getTotalCost();
+                "\nTotal Cost: $" + getTotalCost();
     }
 }

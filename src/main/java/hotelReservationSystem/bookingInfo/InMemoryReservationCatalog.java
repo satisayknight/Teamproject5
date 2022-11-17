@@ -59,7 +59,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             //Add this reservation to the list of reservations
             hotelReservationList.add(reservation);
         } catch (InputMismatchException e) {
-            System.out.print("Wrong Input. Please provide valid values from the menu selection.\n");
+            System.out.print("Wrong Input. Please provide valid value from the menu selection.\n");
         }
 
     }
@@ -68,6 +68,9 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     public void startDateToBook(){
         try{
             System.out.println("What is the start date for your room reservation? [Correct Format example 2022-10-10]");
+
+
+
             LocalDate startDate=LocalDate.parse(stdInt.nextLine());
             reservation.setStartDate(startDate);
         }catch (DateTimeParseException e){
@@ -82,7 +85,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     public void daysToBook() {
         boolean isValidDays = false;
         while (!isValidDays) {
-            System.out.println("How many days would you like to book for? Must be between 1-15 days.");
+            System.out.println("How many days would you like to book for? It has to be between 1 and 15 days.");
             int daysToBook = stdInt.nextInt();
             if (daysToBook < MIN_DAYS_FOR_BOOKING || daysToBook > MAX_DAYS_FOR_BOOKING) {
                 System.out.println("Please input a valid number of days to book.");
@@ -100,7 +103,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
         try {
             //Set roomType and set Room based on user inputs
-            System.out.println("Which room would you like to book? 1:King 2:Queen or 3:Suite");
+            System.out.println("Which room would you like to book? 1:King  2:Queen  3:Suite");
             int roomType = stdInt.nextInt();
 
             if (roomType == 1) {
@@ -114,12 +117,12 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 reservation.setRoom(roomReserved);
             }
             else {
-                System.out.println("Invalid. Please input: 1, 2, or 3.");
+                System.out.println("Invalid. Please input 1, 2, or 3.");
                 //find a way to re-prompt this question instead of restarting the entire program
                 createRoomForReservation();
             }
         } catch (InputMismatchException |IllegalArgumentException e) {
-            System.out.println("Illegal Input Try Again");
+            System.out.println("Illegal Input - Please try Again");
             //createRoomForReservation();
             throw new InputMismatchException("This is an input mismatch handling message.");
         }
@@ -169,7 +172,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                         guest.setHasBalanceDue(false);
                         reservation.setGuest(guest);
                         System.out.println("Thank you for Your credit card Information." +
-                                "\n The balance has been paid.");
+                                "\n The balance $" +reservation.getTotalCost()+" has been paid.");
                     } else {
                         System.out.println("Thank you. The reservation has already been paid.");
                     }
