@@ -2,7 +2,6 @@ package hotelReservationSystem.bookingInfo;
 
 import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.room.Room;
-import hotelReservationSystem.hotel.room.BalanceCalculator;
 
 import java.time.LocalDate;
 
@@ -35,8 +34,6 @@ public class HotelReservation {
         this.room = room;
         this.days = daysBooked;
     }
-
-
 
     public LocalDate getStartDate() {
         return startDate;
@@ -93,7 +90,6 @@ public class HotelReservation {
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
-
 
     @Override
     public int hashCode() {

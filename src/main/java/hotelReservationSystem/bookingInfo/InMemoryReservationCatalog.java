@@ -60,38 +60,29 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             hotelReservationList.add(reservation);
         } catch (InputMismatchException | IllegalArgumentException e) {
             System.out.print("Wrong Input. Please provide valid value and try again.\n");
-
         }
-
     }
 
     @Override
     public void startDateToBook() {
         try {
-
-
             LocalDate today = LocalDate.now();
             boolean isAfterToday = false;
-
             while (!isAfterToday) {
                 System.out.println("What is the start date for your room reservation? " +
                         "[Correct Format example YYYY-MM-DD]");
                 LocalDate startDate = LocalDate.parse(stdInt.nextLine());
                 if (startDate.isBefore(today)) {
-
                     System.out.println("Please select a date that is not before today.");
                 } else {
                     isAfterToday = true;
                     reservation.setStartDate(startDate);
                 }
             }
-
         } catch (DateTimeParseException e) {
             System.out.println("Please input a correct date [Correct Format example YYYY-MM-DD]");
             startDateToBook();
         }
-
-
     }
 
     @Override
@@ -108,19 +99,14 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                 reservation.setEndDate(daysToBook);
             }
         }
-
     }
 
     @Override
     public void createRoomForReservation() throws IllegalArgumentException,InputMismatchException{
-
         try {
             //Set roomType and set Room based on user inputs
             System.out.println("Which room would you like to book? 1:King  2:Queen  3:Suite");
-
-
             int roomType = stdInt.nextInt();
-
             if (roomType == 1) {
                 roomReserved = availableRooms.getNextRoomByType(RoomTypes.KING);
                 reservation.setRoom(roomReserved);
@@ -139,7 +125,6 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
 
         }
     }
-
 
     @Override
     public void createGuestForReservation() throws IllegalArgumentException, InputMismatchException {
@@ -193,13 +178,10 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
             }
             if (!idFound)
                 System.out.println("The Reservation ID is not found.\nPlease try again.");
-
         } catch (NullPointerException | InputMismatchException | IllegalArgumentException e) {
             System.out.println("The information is incorrect.\nPlease try again.");
         }
-
     }
-
 
     @Override
     public void findById(int id) throws NullPointerException, InputMismatchException {
@@ -216,9 +198,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
         } catch (NullPointerException | InputMismatchException e) {
             System.out.println("The reservation ID is not valid.\nPlease try again.");
         }
-
     }
-
 
     @Override
     public int size() {

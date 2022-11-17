@@ -8,11 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GuestTest extends HotelReservation {
 
-
     @Test
     void testSetHasBalanceDu_PositiveTesting() {
         Guest guest = new Guest();
-        //Hasbalance should be true when guest is created
+        //Has balance should be true when guest is created
         assertEquals(true, guest.getHasBalanceDue());
 
         guest.setHasBalanceDue(false);
@@ -56,25 +55,21 @@ class GuestTest extends HotelReservation {
     @Test
     void testSetGuestPhoneNumber_NegativeTesting() throws IllegalArgumentException {
         Guest guest = new Guest();
-
         try {
             guest.setGuestPhoneNumber("1");
         } catch (IllegalArgumentException e) {
             assertEquals("Invalid phone number. Please input 10 digits.", e.getMessage());
         }
-
         try {
             guest.setGuestPhoneNumber("");
         } catch (IllegalArgumentException e) {
             assertEquals("Invalid phone number. Please input 10 digits.", e.getMessage());
         }
-
         try {
             guest.setGuestPhoneNumber("k");
         } catch (IllegalArgumentException e) {
             assertEquals("Invalid phone number. Please input 10 digits.", e.getMessage());
         }
-
         try {
             guest.setGuestPhoneNumber("11111111111111111111111111111111111111");
         } catch (IllegalArgumentException e) {
@@ -136,8 +131,5 @@ class GuestTest extends HotelReservation {
         } catch (IllegalArgumentException e) {
             assertEquals("Invalid Card number", e.getMessage());
         }
-
     }
-
-
 }

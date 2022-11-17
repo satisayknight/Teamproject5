@@ -1,7 +1,5 @@
 package hotelReservationSystem.bookingInfo;
 
-import hotelReservationSystem.guest.Guest;
-
 import java.util.Collection;
 
 public interface IReservationCatalog {

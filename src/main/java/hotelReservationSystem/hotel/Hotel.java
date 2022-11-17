@@ -1,9 +1,6 @@
 package hotelReservationSystem.hotel;
 
-import hotelReservationSystem.bookingInfo.HotelReservation;
 import hotelReservationSystem.bookingInfo.InMemoryReservationCatalog;
-import hotelReservationSystem.hotel.room.Room;
-import hotelReservationSystem.hotel.room.types.RoomTypes;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -14,26 +11,20 @@ public class Hotel {
         try {
             Scanner stdInt = new Scanner(System.in);
             int selection = 0;
-
             do {
                 displayMenu();
                 InMemoryReservationCatalog hotelReservation = new InMemoryReservationCatalog();
-
                 System.out.print("Enter your selection: ");
                 selection = stdInt.nextInt();
-
                 switch (selection) {
-
                     case 1:
                         hotelReservation.createNewHotelReservation();
                         break;
-
                     case 2:
                         System.out.println("What is your reservation id? ");
                         int viewReservationDetailsById = stdInt.nextInt();
                         hotelReservation.findById(viewReservationDetailsById);
                         break;
-
                     case 3:
                         System.out.println("Which kind of room would you like to view? 1:King, 2:Queen, or 3:Suite? ");
                         int roomTypeToView = stdInt.nextInt();
@@ -47,15 +38,12 @@ public class Hotel {
                             System.out.println("Invalid. Please input: 1, 2, or 3.");
                         }
                         break;
-
                     case 4:
                         hotelReservation.payForReservation();
                         break;
-
                     case 9:
                         System.out.println("Thank you for using the HotelReservationSystem JSS program.");
                         break;
-
                     default:
                         System.out.println("Invalid choice.");
                 }
@@ -75,6 +63,4 @@ public class Hotel {
         System.out.println("4: Pay for reservation.");
         System.out.println("9: Exit program.");
     }
-
-
 }

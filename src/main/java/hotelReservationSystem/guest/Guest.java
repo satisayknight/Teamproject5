@@ -10,7 +10,6 @@ public class Guest {
     private static final String CREDITCARD_REGEX_PATTERN = "([0-9]{4})([0-9]{4})([0-9]{4})([0-9]{4})$";
     private static final String GUEST_NAME_REGEX_PATTERN ="^[a-zA-Z \\-\\.\\']*$";
 
-
     private String guestName;
     private String guestEmail;
     private String guestPhoneNumber;
@@ -24,12 +23,6 @@ public class Guest {
         this.guestName = name;
         this.guestEmail = email;
         this.guestPhoneNumber = phone;
-    }
-    public Guest(String name, String email, String phone,boolean hasBalanceDue) {
-        this.guestName = name;
-        this.guestEmail = email;
-        this.guestPhoneNumber = phone;
-        this.getHasBalanceDue();
     }
 
     public void setHasBalanceDue(boolean hasBalance) {
@@ -117,6 +110,4 @@ public class Guest {
                 + "\nEmail: " + this.guestEmail
                 + "\nPhone Number: " + this.guestPhoneNumber;
     }
-
-
 }

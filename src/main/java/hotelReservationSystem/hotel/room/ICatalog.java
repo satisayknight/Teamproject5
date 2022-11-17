@@ -46,8 +46,4 @@ public interface ICatalog {
      * (an all-static utility class) for help here.
      */
     public Collection<Room> getAll();
-
-
-
-
 }

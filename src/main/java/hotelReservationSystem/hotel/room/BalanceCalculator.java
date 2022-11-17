@@ -2,7 +2,6 @@ package hotelReservationSystem.hotel.room;
 
 import hotelReservationSystem.hotel.room.types.RoomTypes;
 
-import static hotelReservationSystem.hotel.room.types.RoomTypes.*;
 
 public class BalanceCalculator {
     final static int KING_COST = 200;

@@ -1,6 +1,5 @@
 package hotelReservationSystem.hotel.room;
 
-import hotelReservationSystem.guest.Guest;
 import hotelReservationSystem.hotel.room.types.RoomTypes;
 
 import java.util.Objects;
@@ -20,9 +19,7 @@ public class Room {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.isVacant=isVacant;
-
     }
-
 
     public String getRoomNumber() {
         return this.roomNumber;
@@ -44,7 +41,6 @@ public class Room {
         }
     }
 
-
     public void changeToVacant(){
         if(isVacant==false){
             isVacant=true;
@@ -52,8 +48,6 @@ public class Room {
             System.out.println("The update is not successful because the room is vacant.");
         }
     }
-
-
 
     @Override
     public boolean equals(Object obj) {

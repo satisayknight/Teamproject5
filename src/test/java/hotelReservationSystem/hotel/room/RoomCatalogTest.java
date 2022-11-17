@@ -12,7 +12,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoomCatalogTest extends HotelReservation {
-
     private ICatalog catalog = new RoomCatalog();
 
     @Before
@@ -38,33 +37,29 @@ class RoomCatalogTest extends HotelReservation {
         assertNull(catalog.findByRoomNumber(String.valueOf(1001)));
     }
 
-
     @Test
     void testFindByRoomType() {
         Collection<Room> items = catalog.findByRoomType(RoomTypes.KING);
-        // sort the results by id (for testing purposes)
+
         List<Room> sortedItems = new ArrayList<>(items);
-        //sortedItems.sort();  // natural order (id)
-        //System.out.println(sortedItems);
+
         assertEquals(20, sortedItems.size());
         assertEquals("101", sortedItems.get(0).getRoomNumber());
         assertEquals("102", sortedItems.get(1).getRoomNumber());
 
         Collection<Room> items2 = catalog.findByRoomType(RoomTypes.QUEEN);
         List<Room> sortedItems2 = new ArrayList<>(items2);
-        //System.out.println(sortedItems2);
+
         assertEquals(20, sortedItems2.size());
         assertEquals("121", sortedItems2.get(0).getRoomNumber());
         assertEquals("122", sortedItems2.get(1).getRoomNumber());
 
         Collection<Room> items3 = catalog.findByRoomType(RoomTypes.SUITE);
         List<Room> sortedItems3 = new ArrayList<>(items3);
-        //System.out.println(sortedItems2);
+
         assertEquals(20, sortedItems3.size());
         assertEquals("141", sortedItems3.get(0).getRoomNumber());
         assertEquals("142", sortedItems3.get(1).getRoomNumber());
-
-
     }
 
     @Test
@@ -89,7 +84,6 @@ class RoomCatalogTest extends HotelReservation {
         assertEquals(20, sortedItems.size());
         assertEquals("101", sortedItems.get(0).getRoomNumber());
         assertEquals("102", sortedItems.get(1).getRoomNumber());
-
     }
 
     @Test
@@ -102,7 +96,6 @@ class RoomCatalogTest extends HotelReservation {
     @Test
     void testFindTakenRoomByRoomType_with_Taken_Room() {
         Collection<Room> items = catalog.findTakenRoomByRoomType(RoomTypes.KING);
-        //List<Room> sortedItems = new ArrayList<>(items);
         Collection<Room> ans = new ArrayList<>(items);
         Collection<Room> roomOfInterestedRoomType = catalog.findByRoomType(RoomTypes.KING);
         for (Room r : roomOfInterestedRoomType) {
@@ -117,9 +110,6 @@ class RoomCatalogTest extends HotelReservation {
     @Test
     void testTotalNumberOfRooms() {
         int items = catalog.totalNumberOfRooms();
-        //System.out.println(items);
         assertEquals(60, items);
     }
-
-
 }

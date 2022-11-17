@@ -5,7 +5,6 @@ import hotelReservationSystem.hotel.room.types.RoomTypes;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RoomCatalog implements ICatalog{
 
@@ -72,10 +71,8 @@ public class RoomCatalog implements ICatalog{
             new Room("158", RoomTypes.SUITE,true),
             new Room("159", RoomTypes.SUITE,true),
             new Room("160", RoomTypes.SUITE,true)
-
     )
     );
-
 
     @Override
     public Room getNextRoomByType(RoomTypes roomType) {
@@ -105,7 +102,6 @@ public class RoomCatalog implements ICatalog{
     }
 
     public List<Room> findAvailableRoomByRoomType(RoomTypes roomType){
-
         List<Room> ans = new ArrayList<>();
         Collection<Room> roomOfInterestedRoomType = findByRoomType(roomType);
         for (Room r : roomOfInterestedRoomType) {
@@ -115,8 +111,8 @@ public class RoomCatalog implements ICatalog{
         }
         return ans;
     }
-    public Collection<Room> findTakenRoomByRoomType(RoomTypes roomType){
 
+    public Collection<Room> findTakenRoomByRoomType(RoomTypes roomType){
         Collection<Room> ans = new ArrayList<>();
         Collection<Room> roomOfInterestedRoomType = findByRoomType(roomType);
         for (Room r : roomOfInterestedRoomType) {
@@ -126,7 +122,6 @@ public class RoomCatalog implements ICatalog{
         }
         return ans;
     }
-
 
     @Override
     public int totalNumberOfRooms() {
