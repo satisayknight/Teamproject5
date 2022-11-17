@@ -68,6 +68,9 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
     public void startDateToBook(){
         try{
             System.out.println("What is the start date for your room reservation? [Correct Format example 2022-10-10]");
+
+
+
             LocalDate startDate=LocalDate.parse(stdInt.nextLine());
             reservation.setStartDate(startDate);
         }catch (DateTimeParseException e){
@@ -169,7 +172,7 @@ public class InMemoryReservationCatalog implements IReservationCatalog {
                         guest.setHasBalanceDue(false);
                         reservation.setGuest(guest);
                         System.out.println("Thank you for Your credit card Information." +
-                                "\n The balance has been paid.");
+                                "\n The balance $" +reservation.getTotalCost()+" has been paid.");
                     } else {
                         System.out.println("Thank you. The reservation has already been paid.");
                     }
