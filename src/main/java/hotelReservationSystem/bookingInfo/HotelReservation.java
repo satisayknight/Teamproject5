@@ -72,6 +72,8 @@ public class HotelReservation {
         this.totalCost = totalCost;
     }
 
+
+
     @Override
     public String toString() {
         return "Guest " + getGuest() +
